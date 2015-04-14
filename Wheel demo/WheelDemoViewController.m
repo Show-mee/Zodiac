@@ -266,9 +266,6 @@
         word = @"Zhu/Pig";
     }
     
-    if (thumb == 1) {
-
-    }
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"User did select item" message:[NSString stringWithFormat:@"Your choice is: %@", word] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alert show];

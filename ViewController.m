@@ -29,6 +29,7 @@
 
 - (void)viewDidLoad
 {
+    zodiacName =  @"01";
     // Do any additional setup after loading the view, typically from a nib.
     [self audio];
     [self.btn addTarget:self action:@selector(btnDown:) forControlEvents:UIControlEventTouchDown];

@@ -15,7 +15,7 @@
     AVAudioRecorder *recorder;
     NSTimer *timer;
     NSURL *urlPlay;
-    NSString * name;
+    NSString * zodiacName;
     
 }
 
