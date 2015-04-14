@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "SvGifViewController.h"
 
 @implementation AppDelegate
 
