@@ -243,7 +243,7 @@
     if(segment == 0){
         word = @"Shu/Mouse";
     }if(segment == 1){
-        word = @"Niu";
+        word = @"Niu/Ox";
     }if(segment == 2){
         word = @"Hu/Tiger";
     }if(segment == 3){
@@ -265,8 +265,13 @@
     }if(segment == 11){
         word = @"Zhu/Pig";
     }
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"User did select item" message:[NSString stringWithFormat:@"Your choice is: %@", word] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-//    [alert show];
+    
+    if (thumb == 1) {
+
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"User did select item" message:[NSString stringWithFormat:@"Your choice is: %@", word] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alert show];
 }
 
 -(UIImage *) circle:(CDCircle *)circle iconForThumbAtRow:(NSInteger)row {

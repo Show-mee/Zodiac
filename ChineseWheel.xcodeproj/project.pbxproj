@@ -9,21 +9,49 @@
 /* Begin PBXBuildFile section */
 		3C24BF45154FA74300084C39 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C24BF44154FA74300084C39 /* UIKit.framework */; };
 		3C24BF47154FA74300084C39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C24BF46154FA74300084C39 /* Foundation.framework */; };
-		3C24BF49154FA74300084C39 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C24BF48154FA74300084C39 /* CoreGraphics.framework */; };
 		3C24BF4F154FA74300084C39 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3C24BF4D154FA74300084C39 /* InfoPlist.strings */; };
-		3C24BF51154FA74300084C39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C24BF50154FA74300084C39 /* main.m */; };
-		3C24BF55154FA74300084C39 /* WheelDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C24BF54154FA74300084C39 /* WheelDemoAppDelegate.m */; };
 		3C24BF58154FA74300084C39 /* WheelDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C24BF57154FA74300084C39 /* WheelDemoViewController.m */; };
 		3C24BF5B154FA74300084C39 /* WheelDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C24BF59154FA74300084C39 /* WheelDemoViewController.xib */; };
-		3C24BF6C154FA76700084C39 /* CDCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C24BF63154FA76700084C39 /* CDCircle.m */; };
-		3C24BF6D154FA76700084C39 /* CDCircleOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C24BF65154FA76700084C39 /* CDCircleOverlayView.m */; };
-		3C24BF6E154FA76700084C39 /* CDCircleThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C24BF67154FA76700084C39 /* CDCircleThumb.m */; };
-		3C24BF6F154FA76700084C39 /* CDIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C24BF69154FA76700084C39 /* CDIconView.m */; };
-		3C24BF70154FA76700084C39 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C24BF6B154FA76700084C39 /* Common.m */; };
 		3C24BF76154FA80200084C39 /* iPod Click.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 3C24BF75154FA80200084C39 /* iPod Click.aiff */; };
-		3C24BF7A154FA82A00084C39 /* CDCircleGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C24BF79154FA82A00084C39 /* CDCircleGestureRecognizer.m */; };
 		3C24BF7D154FA86000084C39 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C24BF7C154FA86000084C39 /* AudioToolbox.framework */; };
 		3C24BF7F154FA86D00084C39 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C24BF7E154FA86D00084C39 /* QuartzCore.framework */; };
+		4E0EA8111ADD14A9001673D4 /* SvGifView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EA80E1ADD14A9001673D4 /* SvGifView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4E0EA8121ADD14A9001673D4 /* SvGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EA8101ADD14A9001673D4 /* SvGifViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4E0EA8161ADD151B001673D4 /* Horse2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA8151ADD151B001673D4 /* Horse2.gif */; };
+		4E0EA8191ADD152F001673D4 /* HYScratchCardViewExample-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA8171ADD152F001673D4 /* HYScratchCardViewExample-Info.plist */; };
+		4E0EA81D1ADD1566001673D4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA81C1ADD1566001673D4 /* InfoPlist.strings */; };
+		4E0EA8241ADD1576001673D4 /* launching.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA81E1ADD1576001673D4 /* launching.png */; };
+		4E0EA8251ADD1576001673D4 /* record2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA81F1ADD1576001673D4 /* record2.png */; };
+		4E0EA8261ADD1576001673D4 /* writing2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA8201ADD1576001673D4 /* writing2.png */; };
+		4E0EA8271ADD1576001673D4 /* 轮1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA8211ADD1576001673D4 /* 轮1.png */; };
+		4E0EA8281ADD1576001673D4 /* 轮2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA8221ADD1576001673D4 /* 轮2.png */; };
+		4E0EA8291ADD1576001673D4 /* 轮3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA8231ADD1576001673D4 /* 轮3.png */; };
+		4E0EA82D1ADD157E001673D4 /* horseBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA82A1ADD157E001673D4 /* horseBackground.png */; };
+		4E0EA82E1ADD157E001673D4 /* horseOriginal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA82B1ADD157E001673D4 /* horseOriginal.png */; };
+		4E0EA82F1ADD157E001673D4 /* horseScatched.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA82C1ADD157E001673D4 /* horseScatched.png */; };
+		4E0EA8321ADD15A8001673D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EA8311ADD15A8001673D4 /* AppDelegate.m */; };
+		4E0EA8481ADD1618001673D4 /* CDCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EA83D1ADD1618001673D4 /* CDCircle.m */; };
+		4E0EA8491ADD1618001673D4 /* CDCircleGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EA83F1ADD1618001673D4 /* CDCircleGestureRecognizer.m */; };
+		4E0EA84A1ADD1618001673D4 /* CDCircleOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EA8411ADD1618001673D4 /* CDCircleOverlayView.m */; };
+		4E0EA84B1ADD1618001673D4 /* CDCircleThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EA8431ADD1618001673D4 /* CDCircleThumb.m */; };
+		4E0EA84C1ADD1618001673D4 /* CDIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EA8451ADD1618001673D4 /* CDIconView.m */; };
+		4E0EA84D1ADD1618001673D4 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EA8471ADD1618001673D4 /* Common.m */; };
+		4E0EA84F1ADD16C1001673D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EA84E1ADD16C1001673D4 /* main.m */; };
+		4E0EA8581ADD4835001673D4 /* 01.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA8531ADD4835001673D4 /* 01.gif */; };
+		4E0EA8591ADD4835001673D4 /* 02.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA8541ADD4835001673D4 /* 02.gif */; };
+		4E0EA85A1ADD4835001673D4 /* 07.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA8551ADD4835001673D4 /* 07.gif */; };
+		4E0EA85B1ADD4835001673D4 /* 08.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA8561ADD4835001673D4 /* 08.gif */; };
+		4E0EA85C1ADD4835001673D4 /* 12.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA8571ADD4835001673D4 /* 12.gif */; };
+		4E4001E51AD7EA84002917F4 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4001E41AD7EA84002917F4 /* CoreImage.framework */; };
+		4E4001E61AD7EAC8002917F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C24BF48154FA74300084C39 /* CoreGraphics.framework */; };
+		4E4001E81AD7EB52002917F4 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4001E71AD7EB52002917F4 /* ImageIO.framework */; };
+		4E8087341AD7DF47000767C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E8087331AD7DF47000767C5 /* Main.storyboard */; };
+		4E8087371AD7DF5F000767C5 /* HYScratchCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8087361AD7DF5E000767C5 /* HYScratchCardView.m */; };
+		4E80873A1AD7DF7A000767C5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E8087391AD7DF7A000767C5 /* Images.xcassets */; };
+		4E80873C1AD7DF7F000767C5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E80873B1AD7DF7F000767C5 /* LaunchScreen.xib */; };
+		4E8087631AD7E0E4000767C5 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E8087621AD7E0E4000767C5 /* CoreFoundation.framework */; };
+		4E8087651AD7E37D000767C5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E8087641AD7E37D000767C5 /* AVFoundation.framework */; };
+		4ECD387B1ADD132C008F9DFA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECD387A1ADD132C008F9DFA /* ViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		986A73EB1AD6C9D50015C12A /* C1 in Resources */ = {isa = PBXBuildFile; fileRef = 986A73E71AD6C9D50015C12A /* C1 */; };
 		986A73EC1AD6C9D50015C12A /* C2 in Resources */ = {isa = PBXBuildFile; fileRef = 986A73E81AD6C9D50015C12A /* C2 */; };
 		986A73ED1AD6C9D50015C12A /* C3 in Resources */ = {isa = PBXBuildFile; fileRef = 986A73E91AD6C9D50015C12A /* C3 */; };
@@ -38,28 +66,61 @@
 		3C24BF48154FA74300084C39 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		3C24BF4C154FA74300084C39 /* ChineseWheel-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChineseWheel-Info.plist"; sourceTree = "<group>"; };
 		3C24BF4E154FA74300084C39 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3C24BF50154FA74300084C39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3C24BF52154FA74300084C39 /* ChineseWheel-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChineseWheel-Prefix.pch"; sourceTree = "<group>"; };
-		3C24BF53154FA74300084C39 /* WheelDemoAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WheelDemoAppDelegate.h; sourceTree = "<group>"; };
-		3C24BF54154FA74300084C39 /* WheelDemoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = WheelDemoAppDelegate.m; sourceTree = "<group>"; };
 		3C24BF56154FA74300084C39 /* WheelDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WheelDemoViewController.h; sourceTree = "<group>"; };
 		3C24BF57154FA74300084C39 /* WheelDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WheelDemoViewController.m; sourceTree = "<group>"; };
 		3C24BF5A154FA74300084C39 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WheelDemoViewController.xib; sourceTree = "<group>"; };
-		3C24BF62154FA76700084C39 /* CDCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCircle.h; sourceTree = "<group>"; };
-		3C24BF63154FA76700084C39 /* CDCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCircle.m; sourceTree = "<group>"; };
-		3C24BF64154FA76700084C39 /* CDCircleOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCircleOverlayView.h; sourceTree = "<group>"; };
-		3C24BF65154FA76700084C39 /* CDCircleOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCircleOverlayView.m; sourceTree = "<group>"; };
-		3C24BF66154FA76700084C39 /* CDCircleThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCircleThumb.h; sourceTree = "<group>"; };
-		3C24BF67154FA76700084C39 /* CDCircleThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCircleThumb.m; sourceTree = "<group>"; };
-		3C24BF68154FA76700084C39 /* CDIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDIconView.h; sourceTree = "<group>"; };
-		3C24BF69154FA76700084C39 /* CDIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDIconView.m; sourceTree = "<group>"; };
-		3C24BF6A154FA76700084C39 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
-		3C24BF6B154FA76700084C39 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		3C24BF75154FA80200084C39 /* iPod Click.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "iPod Click.aiff"; sourceTree = "<group>"; };
-		3C24BF79154FA82A00084C39 /* CDCircleGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCircleGestureRecognizer.m; sourceTree = "<group>"; };
-		3C24BF7B154FA84200084C39 /* CDCircleGestureRecognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDCircleGestureRecognizer.h; sourceTree = "<group>"; };
 		3C24BF7C154FA86000084C39 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3C24BF7E154FA86D00084C39 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4E0EA80D1ADD14A9001673D4 /* SvGifView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvGifView.h; sourceTree = "<group>"; };
+		4E0EA80E1ADD14A9001673D4 /* SvGifView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvGifView.m; sourceTree = "<group>"; };
+		4E0EA80F1ADD14A9001673D4 /* SvGifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvGifViewController.h; sourceTree = "<group>"; };
+		4E0EA8101ADD14A9001673D4 /* SvGifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvGifViewController.m; sourceTree = "<group>"; };
+		4E0EA8151ADD151B001673D4 /* Horse2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Horse2.gif; sourceTree = "<group>"; };
+		4E0EA8171ADD152F001673D4 /* HYScratchCardViewExample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "HYScratchCardViewExample-Info.plist"; sourceTree = "<group>"; };
+		4E0EA8181ADD152F001673D4 /* HYScratchCardViewExample-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HYScratchCardViewExample-Prefix.pch"; sourceTree = "<group>"; };
+		4E0EA81C1ADD1566001673D4 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		4E0EA81E1ADD1576001673D4 /* launching.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launching.png; sourceTree = "<group>"; };
+		4E0EA81F1ADD1576001673D4 /* record2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record2.png; sourceTree = "<group>"; };
+		4E0EA8201ADD1576001673D4 /* writing2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = writing2.png; sourceTree = "<group>"; };
+		4E0EA8211ADD1576001673D4 /* 轮1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "轮1.png"; sourceTree = "<group>"; };
+		4E0EA8221ADD1576001673D4 /* 轮2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "轮2.png"; sourceTree = "<group>"; };
+		4E0EA8231ADD1576001673D4 /* 轮3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "轮3.png"; sourceTree = "<group>"; };
+		4E0EA82A1ADD157E001673D4 /* horseBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = horseBackground.png; sourceTree = "<group>"; };
+		4E0EA82B1ADD157E001673D4 /* horseOriginal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = horseOriginal.png; sourceTree = "<group>"; };
+		4E0EA82C1ADD157E001673D4 /* horseScatched.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = horseScatched.png; sourceTree = "<group>"; };
+		4E0EA8301ADD15A8001673D4 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4E0EA8311ADD15A8001673D4 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4E0EA83C1ADD1618001673D4 /* CDCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCircle.h; sourceTree = "<group>"; };
+		4E0EA83D1ADD1618001673D4 /* CDCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCircle.m; sourceTree = "<group>"; };
+		4E0EA83E1ADD1618001673D4 /* CDCircleGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCircleGestureRecognizer.h; sourceTree = "<group>"; };
+		4E0EA83F1ADD1618001673D4 /* CDCircleGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCircleGestureRecognizer.m; sourceTree = "<group>"; };
+		4E0EA8401ADD1618001673D4 /* CDCircleOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCircleOverlayView.h; sourceTree = "<group>"; };
+		4E0EA8411ADD1618001673D4 /* CDCircleOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCircleOverlayView.m; sourceTree = "<group>"; };
+		4E0EA8421ADD1618001673D4 /* CDCircleThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCircleThumb.h; sourceTree = "<group>"; };
+		4E0EA8431ADD1618001673D4 /* CDCircleThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCircleThumb.m; sourceTree = "<group>"; };
+		4E0EA8441ADD1618001673D4 /* CDIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDIconView.h; sourceTree = "<group>"; };
+		4E0EA8451ADD1618001673D4 /* CDIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDIconView.m; sourceTree = "<group>"; };
+		4E0EA8461ADD1618001673D4 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		4E0EA8471ADD1618001673D4 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		4E0EA84E1ADD16C1001673D4 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4E0EA8531ADD4835001673D4 /* 01.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 01.gif; sourceTree = "<group>"; };
+		4E0EA8541ADD4835001673D4 /* 02.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 02.gif; sourceTree = "<group>"; };
+		4E0EA8551ADD4835001673D4 /* 07.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 07.gif; sourceTree = "<group>"; };
+		4E0EA8561ADD4835001673D4 /* 08.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 08.gif; sourceTree = "<group>"; };
+		4E0EA8571ADD4835001673D4 /* 12.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 12.gif; sourceTree = "<group>"; };
+		4E4001E41AD7EA84002917F4 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		4E4001E71AD7EB52002917F4 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		4E8087331AD7DF47000767C5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
+		4E8087351AD7DF5E000767C5 /* HYScratchCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYScratchCardView.h; sourceTree = "<group>"; };
+		4E8087361AD7DF5E000767C5 /* HYScratchCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYScratchCardView.m; sourceTree = "<group>"; };
+		4E8087391AD7DF7A000767C5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
+		4E80873B1AD7DF7F000767C5 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = ../LaunchScreen.xib; sourceTree = "<group>"; };
+		4E8087621AD7E0E4000767C5 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		4E8087641AD7E37D000767C5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		4ECD38791ADD132C008F9DFA /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ../ViewController.h; sourceTree = "<group>"; };
+		4ECD387A1ADD132C008F9DFA /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ../ViewController.m; sourceTree = "<group>"; };
 		986A73E71AD6C9D50015C12A /* C1 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = C1; sourceTree = "<group>"; };
 		986A73E81AD6C9D50015C12A /* C2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = C2; sourceTree = "<group>"; };
 		986A73E91AD6C9D50015C12A /* C3 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = C3; sourceTree = "<group>"; };
@@ -72,11 +133,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E4001E81AD7EB52002917F4 /* ImageIO.framework in Frameworks */,
+				4E4001E61AD7EAC8002917F4 /* CoreGraphics.framework in Frameworks */,
+				4E4001E51AD7EA84002917F4 /* CoreImage.framework in Frameworks */,
+				4E8087651AD7E37D000767C5 /* AVFoundation.framework in Frameworks */,
+				4E8087631AD7E0E4000767C5 /* CoreFoundation.framework in Frameworks */,
 				3C24BF7F154FA86D00084C39 /* QuartzCore.framework in Frameworks */,
 				3C24BF7D154FA86000084C39 /* AudioToolbox.framework in Frameworks */,
 				3C24BF45154FA74300084C39 /* UIKit.framework in Frameworks */,
 				3C24BF47154FA74300084C39 /* Foundation.framework in Frameworks */,
-				3C24BF49154FA74300084C39 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,9 +151,6 @@
 		3C24BF35154FA74200084C39 = {
 			isa = PBXGroup;
 			children = (
-				986A73EF1AD6CA600015C12A /* Default-568h@2x.png */,
-				3C24BF7E154FA86D00084C39 /* QuartzCore.framework */,
-				3C24BF7C154FA86000084C39 /* AudioToolbox.framework */,
 				3C24BF4A154FA74300084C39 /* ChineseWheel */,
 				3C24BF43154FA74300084C39 /* Frameworks */,
 				3C24BF41154FA74300084C39 /* Products */,
@@ -106,6 +168,12 @@
 		3C24BF43154FA74300084C39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E4001E71AD7EB52002917F4 /* ImageIO.framework */,
+				4E4001E41AD7EA84002917F4 /* CoreImage.framework */,
+				4E8087641AD7E37D000767C5 /* AVFoundation.framework */,
+				4E8087621AD7E0E4000767C5 /* CoreFoundation.framework */,
+				3C24BF7E154FA86D00084C39 /* QuartzCore.framework */,
+				3C24BF7C154FA86000084C39 /* AudioToolbox.framework */,
 				3C24BF44154FA74300084C39 /* UIKit.framework */,
 				3C24BF46154FA74300084C39 /* Foundation.framework */,
 				3C24BF48154FA74300084C39 /* CoreGraphics.framework */,
@@ -116,12 +184,15 @@
 		3C24BF4A154FA74300084C39 /* ChineseWheel */ = {
 			isa = PBXGroup;
 			children = (
-				3C24BF53154FA74300084C39 /* WheelDemoAppDelegate.h */,
-				3C24BF54154FA74300084C39 /* WheelDemoAppDelegate.m */,
-				3C24BF56154FA74300084C39 /* WheelDemoViewController.h */,
-				3C24BF57154FA74300084C39 /* WheelDemoViewController.m */,
-				3C24BF59154FA74300084C39 /* WheelDemoViewController.xib */,
-				3C24BF61154FA76700084C39 /* Wheel */,
+				4ECD38791ADD132C008F9DFA /* ViewController.h */,
+				4ECD387A1ADD132C008F9DFA /* ViewController.m */,
+				4E0EA8141ADD14BF001673D4 /* GIF */,
+				4ECD38771ADD1097008F9DFA /* Scatch */,
+				4E0EA8521ADD199C001673D4 /* Wheel */,
+				4E8087391AD7DF7A000767C5 /* Images.xcassets */,
+				4E0EA8501ADD1719001673D4 /* images */,
+				4E80873B1AD7DF7F000767C5 /* LaunchScreen.xib */,
+				4E8087331AD7DF47000767C5 /* Main.storyboard */,
 				3C24BF4B154FA74300084C39 /* Supporting Files */,
 			);
 			name = ChineseWheel;
@@ -131,11 +202,13 @@
 		3C24BF4B154FA74300084C39 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4E0EA84E1ADD16C1001673D4 /* main.m */,
+				4E0EA8301ADD15A8001673D4 /* AppDelegate.h */,
+				4E0EA8311ADD15A8001673D4 /* AppDelegate.m */,
 				989F4D201AC3790400D23DF2 /* image */,
 				3C24BF75154FA80200084C39 /* iPod Click.aiff */,
 				3C24BF4C154FA74300084C39 /* ChineseWheel-Info.plist */,
 				3C24BF4D154FA74300084C39 /* InfoPlist.strings */,
-				3C24BF50154FA74300084C39 /* main.m */,
 				3C24BF52154FA74300084C39 /* ChineseWheel-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -144,20 +217,80 @@
 		3C24BF61154FA76700084C39 /* Wheel */ = {
 			isa = PBXGroup;
 			children = (
-				3C24BF62154FA76700084C39 /* CDCircle.h */,
-				3C24BF63154FA76700084C39 /* CDCircle.m */,
-				3C24BF64154FA76700084C39 /* CDCircleOverlayView.h */,
-				3C24BF65154FA76700084C39 /* CDCircleOverlayView.m */,
-				3C24BF66154FA76700084C39 /* CDCircleThumb.h */,
-				3C24BF67154FA76700084C39 /* CDCircleThumb.m */,
-				3C24BF68154FA76700084C39 /* CDIconView.h */,
-				3C24BF69154FA76700084C39 /* CDIconView.m */,
-				3C24BF6A154FA76700084C39 /* Common.h */,
-				3C24BF6B154FA76700084C39 /* Common.m */,
-				3C24BF7B154FA84200084C39 /* CDCircleGestureRecognizer.h */,
-				3C24BF79154FA82A00084C39 /* CDCircleGestureRecognizer.m */,
+				4E0EA83C1ADD1618001673D4 /* CDCircle.h */,
+				4E0EA83D1ADD1618001673D4 /* CDCircle.m */,
+				4E0EA83E1ADD1618001673D4 /* CDCircleGestureRecognizer.h */,
+				4E0EA83F1ADD1618001673D4 /* CDCircleGestureRecognizer.m */,
+				4E0EA8401ADD1618001673D4 /* CDCircleOverlayView.h */,
+				4E0EA8411ADD1618001673D4 /* CDCircleOverlayView.m */,
+				4E0EA8421ADD1618001673D4 /* CDCircleThumb.h */,
+				4E0EA8431ADD1618001673D4 /* CDCircleThumb.m */,
+				4E0EA8441ADD1618001673D4 /* CDIconView.h */,
+				4E0EA8451ADD1618001673D4 /* CDIconView.m */,
+				4E0EA8461ADD1618001673D4 /* Common.h */,
+				4E0EA8471ADD1618001673D4 /* Common.m */,
 			);
 			path = Wheel;
+			sourceTree = "<group>";
+		};
+		4E0EA8141ADD14BF001673D4 /* GIF */ = {
+			isa = PBXGroup;
+			children = (
+				4E0EA8531ADD4835001673D4 /* 01.gif */,
+				4E0EA8541ADD4835001673D4 /* 02.gif */,
+				4E0EA8551ADD4835001673D4 /* 07.gif */,
+				4E0EA8561ADD4835001673D4 /* 08.gif */,
+				4E0EA8571ADD4835001673D4 /* 12.gif */,
+				4E0EA8151ADD151B001673D4 /* Horse2.gif */,
+				4E0EA80D1ADD14A9001673D4 /* SvGifView.h */,
+				4E0EA80E1ADD14A9001673D4 /* SvGifView.m */,
+				4E0EA80F1ADD14A9001673D4 /* SvGifViewController.h */,
+				4E0EA8101ADD14A9001673D4 /* SvGifViewController.m */,
+			);
+			name = GIF;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		4E0EA8501ADD1719001673D4 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				4E0EA82A1ADD157E001673D4 /* horseBackground.png */,
+				4E0EA82B1ADD157E001673D4 /* horseOriginal.png */,
+				4E0EA82C1ADD157E001673D4 /* horseScatched.png */,
+				4E0EA81E1ADD1576001673D4 /* launching.png */,
+				4E0EA81F1ADD1576001673D4 /* record2.png */,
+				4E0EA8201ADD1576001673D4 /* writing2.png */,
+				4E0EA8211ADD1576001673D4 /* 轮1.png */,
+				4E0EA8221ADD1576001673D4 /* 轮2.png */,
+				4E0EA8231ADD1576001673D4 /* 轮3.png */,
+				986A73EF1AD6CA600015C12A /* Default-568h@2x.png */,
+			);
+			name = images;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		4E0EA8521ADD199C001673D4 /* Wheel */ = {
+			isa = PBXGroup;
+			children = (
+				3C24BF56154FA74300084C39 /* WheelDemoViewController.h */,
+				3C24BF57154FA74300084C39 /* WheelDemoViewController.m */,
+				3C24BF59154FA74300084C39 /* WheelDemoViewController.xib */,
+				3C24BF61154FA76700084C39 /* Wheel */,
+			);
+			name = Wheel;
+			sourceTree = "<group>";
+		};
+		4ECD38771ADD1097008F9DFA /* Scatch */ = {
+			isa = PBXGroup;
+			children = (
+				4E0EA81C1ADD1566001673D4 /* InfoPlist.strings */,
+				4E0EA8171ADD152F001673D4 /* HYScratchCardViewExample-Info.plist */,
+				4E0EA8181ADD152F001673D4 /* HYScratchCardViewExample-Prefix.pch */,
+				4E8087351AD7DF5E000767C5 /* HYScratchCardView.h */,
+				4E8087361AD7DF5E000767C5 /* HYScratchCardView.m */,
+			);
+			name = Scatch;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		989F4D201AC3790400D23DF2 /* image */ = {
@@ -198,7 +331,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = WheelDemo;
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0630;
 			};
 			buildConfigurationList = 3C24BF3A154FA74200084C39 /* Build configuration list for PBXProject "ChineseWheel" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -223,12 +356,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				986A73EC1AD6C9D50015C12A /* C2 in Resources */,
+				4E0EA81D1ADD1566001673D4 /* InfoPlist.strings in Resources */,
+				4E80873A1AD7DF7A000767C5 /* Images.xcassets in Resources */,
+				4E0EA82F1ADD157E001673D4 /* horseScatched.png in Resources */,
+				4E0EA8271ADD1576001673D4 /* 轮1.png in Resources */,
+				4E8087341AD7DF47000767C5 /* Main.storyboard in Resources */,
 				986A73EE1AD6C9D50015C12A /* C4 in Resources */,
 				3C24BF4F154FA74300084C39 /* InfoPlist.strings in Resources */,
+				4E0EA8161ADD151B001673D4 /* Horse2.gif in Resources */,
 				986A73ED1AD6C9D50015C12A /* C3 in Resources */,
+				4E0EA8191ADD152F001673D4 /* HYScratchCardViewExample-Info.plist in Resources */,
+				4E0EA8581ADD4835001673D4 /* 01.gif in Resources */,
+				4E0EA8261ADD1576001673D4 /* writing2.png in Resources */,
+				4E0EA85A1ADD4835001673D4 /* 07.gif in Resources */,
+				4E0EA8241ADD1576001673D4 /* launching.png in Resources */,
 				3C24BF5B154FA74300084C39 /* WheelDemoViewController.xib in Resources */,
+				4E0EA8291ADD1576001673D4 /* 轮3.png in Resources */,
+				4E0EA8281ADD1576001673D4 /* 轮2.png in Resources */,
+				4E0EA8251ADD1576001673D4 /* record2.png in Resources */,
+				4E0EA82E1ADD157E001673D4 /* horseOriginal.png in Resources */,
 				986A73F01AD6CA600015C12A /* Default-568h@2x.png in Resources */,
+				4E0EA8591ADD4835001673D4 /* 02.gif in Resources */,
+				4E0EA85B1ADD4835001673D4 /* 08.gif in Resources */,
 				986A73EB1AD6C9D50015C12A /* C1 in Resources */,
+				4E0EA82D1ADD157E001673D4 /* horseBackground.png in Resources */,
+				4E0EA85C1ADD4835001673D4 /* 12.gif in Resources */,
+				4E80873C1AD7DF7F000767C5 /* LaunchScreen.xib in Resources */,
 				3C24BF76154FA80200084C39 /* iPod Click.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,15 +393,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C24BF51154FA74300084C39 /* main.m in Sources */,
-				3C24BF55154FA74300084C39 /* WheelDemoAppDelegate.m in Sources */,
+				4E0EA8121ADD14A9001673D4 /* SvGifViewController.m in Sources */,
+				4E8087371AD7DF5F000767C5 /* HYScratchCardView.m in Sources */,
 				3C24BF58154FA74300084C39 /* WheelDemoViewController.m in Sources */,
-				3C24BF6C154FA76700084C39 /* CDCircle.m in Sources */,
-				3C24BF6D154FA76700084C39 /* CDCircleOverlayView.m in Sources */,
-				3C24BF6E154FA76700084C39 /* CDCircleThumb.m in Sources */,
-				3C24BF6F154FA76700084C39 /* CDIconView.m in Sources */,
-				3C24BF70154FA76700084C39 /* Common.m in Sources */,
-				3C24BF7A154FA82A00084C39 /* CDCircleGestureRecognizer.m in Sources */,
+				4E0EA84D1ADD1618001673D4 /* Common.m in Sources */,
+				4E0EA84B1ADD1618001673D4 /* CDCircleThumb.m in Sources */,
+				4E0EA8111ADD14A9001673D4 /* SvGifView.m in Sources */,
+				4E0EA8491ADD1618001673D4 /* CDCircleGestureRecognizer.m in Sources */,
+				4ECD387B1ADD132C008F9DFA /* ViewController.m in Sources */,
+				4E0EA84F1ADD16C1001673D4 /* main.m in Sources */,
+				4E0EA84C1ADD1618001673D4 /* CDIconView.m in Sources */,
+				4E0EA84A1ADD1618001673D4 /* CDCircleOverlayView.m in Sources */,
+				4E0EA8481ADD1618001673D4 /* CDCircle.m in Sources */,
+				4E0EA8321ADD15A8001673D4 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +448,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -306,7 +464,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos8.2;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -326,6 +484,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -336,7 +495,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos8.2;
+				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -344,13 +503,14 @@
 		3C24BF5F154FA74300084C39 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wheel demo/ChineseWheel-Prefix.pch";
 				INFOPLIST_FILE = "Wheel demo/ChineseWheel-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = ChineseWheel;
-				SDKROOT = iphoneos8.2;
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -358,13 +518,14 @@
 		3C24BF60154FA74300084C39 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wheel demo/ChineseWheel-Prefix.pch";
 				INFOPLIST_FILE = "Wheel demo/ChineseWheel-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = ChineseWheel;
-				SDKROOT = iphoneos8.2;
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
