@@ -40,6 +40,9 @@
 		4E0EA85A1ADD4835001673D4 /* 07.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA8551ADD4835001673D4 /* 07.gif */; };
 		4E0EA85B1ADD4835001673D4 /* 08.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA8561ADD4835001673D4 /* 08.gif */; };
 		4E0EA85C1ADD4835001673D4 /* 12.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA8571ADD4835001673D4 /* 12.gif */; };
+		4E0EA8661ADDA522001673D4 /* AudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EA8641ADDA522001673D4 /* AudioViewController.m */; };
+		4E0EA8671ADDA522001673D4 /* AudioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA8651ADDA522001673D4 /* AudioViewController.xib */; };
+		4E0EA86A1ADDA5BA001673D4 /* SvGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EA8691ADDA5BA001673D4 /* SvGifViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4E4001E51AD7EA84002917F4 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4001E41AD7EA84002917F4 /* CoreImage.framework */; };
 		4E4001E61AD7EAC8002917F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C24BF48154FA74300084C39 /* CoreGraphics.framework */; };
 		4E4001E81AD7EB52002917F4 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4001E71AD7EB52002917F4 /* ImageIO.framework */; };
@@ -81,9 +84,9 @@
 		4E0EA8211ADD1576001673D4 /* 轮1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "轮1.png"; sourceTree = "<group>"; };
 		4E0EA8221ADD1576001673D4 /* 轮2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "轮2.png"; sourceTree = "<group>"; };
 		4E0EA8231ADD1576001673D4 /* 轮3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "轮3.png"; sourceTree = "<group>"; };
-		4E0EA82A1ADD157E001673D4 /* horseBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = horseBackground.png; sourceTree = "<group>"; };
-		4E0EA82B1ADD157E001673D4 /* horseOriginal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = horseOriginal.png; sourceTree = "<group>"; };
-		4E0EA82C1ADD157E001673D4 /* horseScatched.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = horseScatched.png; sourceTree = "<group>"; };
+		4E0EA82A1ADD157E001673D4 /* horseBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = horseBackground.png; path = ../horseBackground.png; sourceTree = "<group>"; };
+		4E0EA82B1ADD157E001673D4 /* horseOriginal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = horseOriginal.png; path = ../horseOriginal.png; sourceTree = "<group>"; };
+		4E0EA82C1ADD157E001673D4 /* horseScatched.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = horseScatched.png; path = ../horseScatched.png; sourceTree = "<group>"; };
 		4E0EA8301ADD15A8001673D4 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4E0EA8311ADD15A8001673D4 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4E0EA83C1ADD1618001673D4 /* CDCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCircle.h; sourceTree = "<group>"; };
@@ -104,6 +107,11 @@
 		4E0EA8551ADD4835001673D4 /* 07.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 07.gif; sourceTree = "<group>"; };
 		4E0EA8561ADD4835001673D4 /* 08.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 08.gif; sourceTree = "<group>"; };
 		4E0EA8571ADD4835001673D4 /* 12.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 12.gif; sourceTree = "<group>"; };
+		4E0EA8631ADDA522001673D4 /* AudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioViewController.h; sourceTree = SOURCE_ROOT; };
+		4E0EA8641ADDA522001673D4 /* AudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioViewController.m; sourceTree = SOURCE_ROOT; };
+		4E0EA8651ADDA522001673D4 /* AudioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioViewController.xib; sourceTree = SOURCE_ROOT; };
+		4E0EA8681ADDA5BA001673D4 /* SvGifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvGifViewController.h; sourceTree = "<group>"; };
+		4E0EA8691ADDA5BA001673D4 /* SvGifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvGifViewController.m; sourceTree = "<group>"; };
 		4E4001E41AD7EA84002917F4 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		4E4001E71AD7EB52002917F4 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		4E8087331AD7DF47000767C5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
@@ -178,11 +186,12 @@
 		3C24BF4A154FA74300084C39 /* ChineseWheel */ = {
 			isa = PBXGroup;
 			children = (
+				4E0EA8521ADD199C001673D4 /* Wheel */,
 				4ECD38791ADD132C008F9DFA /* ViewController.h */,
 				4ECD387A1ADD132C008F9DFA /* ViewController.m */,
 				4E0EA8141ADD14BF001673D4 /* GIF */,
 				4ECD38771ADD1097008F9DFA /* Scatch */,
-				4E0EA8521ADD199C001673D4 /* Wheel */,
+				4E0EA85D1ADD9B8D001673D4 /* Audio */,
 				4E8087391AD7DF7A000767C5 /* Images.xcassets */,
 				4E0EA8501ADD1719001673D4 /* images */,
 				4E80873B1AD7DF7F000767C5 /* LaunchScreen.xib */,
@@ -230,6 +239,8 @@
 		4E0EA8141ADD14BF001673D4 /* GIF */ = {
 			isa = PBXGroup;
 			children = (
+				4E0EA8681ADDA5BA001673D4 /* SvGifViewController.h */,
+				4E0EA8691ADDA5BA001673D4 /* SvGifViewController.m */,
 				4E0EA8531ADD4835001673D4 /* 01.gif */,
 				4E0EA8541ADD4835001673D4 /* 02.gif */,
 				4E0EA8551ADD4835001673D4 /* 07.gif */,
@@ -246,9 +257,6 @@
 		4E0EA8501ADD1719001673D4 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				4E0EA82A1ADD157E001673D4 /* horseBackground.png */,
-				4E0EA82B1ADD157E001673D4 /* horseOriginal.png */,
-				4E0EA82C1ADD157E001673D4 /* horseScatched.png */,
 				4E0EA81E1ADD1576001673D4 /* launching.png */,
 				4E0EA81F1ADD1576001673D4 /* record2.png */,
 				4E0EA8201ADD1576001673D4 /* writing2.png */,
@@ -264,12 +272,25 @@
 		4E0EA8521ADD199C001673D4 /* Wheel */ = {
 			isa = PBXGroup;
 			children = (
+				4E0EA82A1ADD157E001673D4 /* horseBackground.png */,
+				4E0EA82B1ADD157E001673D4 /* horseOriginal.png */,
+				4E0EA82C1ADD157E001673D4 /* horseScatched.png */,
 				3C24BF56154FA74300084C39 /* WheelDemoViewController.h */,
 				3C24BF57154FA74300084C39 /* WheelDemoViewController.m */,
 				3C24BF59154FA74300084C39 /* WheelDemoViewController.xib */,
 				3C24BF61154FA76700084C39 /* Wheel */,
 			);
 			name = Wheel;
+			sourceTree = "<group>";
+		};
+		4E0EA85D1ADD9B8D001673D4 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				4E0EA8631ADDA522001673D4 /* AudioViewController.h */,
+				4E0EA8641ADDA522001673D4 /* AudioViewController.m */,
+				4E0EA8651ADDA522001673D4 /* AudioViewController.xib */,
+			);
+			name = Audio;
 			sourceTree = "<group>";
 		};
 		4ECD38771ADD1097008F9DFA /* Scatch */ = {
@@ -350,6 +371,7 @@
 				4E80873A1AD7DF7A000767C5 /* Images.xcassets in Resources */,
 				4E0EA82F1ADD157E001673D4 /* horseScatched.png in Resources */,
 				4E0EA8271ADD1576001673D4 /* 轮1.png in Resources */,
+				4E0EA8671ADDA522001673D4 /* AudioViewController.xib in Resources */,
 				4E8087341AD7DF47000767C5 /* Main.storyboard in Resources */,
 				986A73EE1AD6C9D50015C12A /* C4 in Resources */,
 				3C24BF4F154FA74300084C39 /* InfoPlist.strings in Resources */,
@@ -382,6 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E0EA86A1ADDA5BA001673D4 /* SvGifViewController.m in Sources */,
 				4E8087371AD7DF5F000767C5 /* HYScratchCardView.m in Sources */,
 				3C24BF58154FA74300084C39 /* WheelDemoViewController.m in Sources */,
 				4E0EA84D1ADD1618001673D4 /* Common.m in Sources */,
@@ -392,6 +415,7 @@
 				4E0EA84F1ADD16C1001673D4 /* main.m in Sources */,
 				4E0EA84C1ADD1618001673D4 /* CDIconView.m in Sources */,
 				4E0EA84A1ADD1618001673D4 /* CDCircleOverlayView.m in Sources */,
+				4E0EA8661ADDA522001673D4 /* AudioViewController.m in Sources */,
 				4E0EA8481ADD1618001673D4 /* CDCircle.m in Sources */,
 				4E0EA8321ADD15A8001673D4 /* AppDelegate.m in Sources */,
 			);

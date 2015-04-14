@@ -80,9 +80,13 @@ void getFrameInfo(CFURLRef url, NSMutableArray *frames, NSMutableArray *delayTim
         if (fileURL) {
             getFrameInfo((CFURLRef)fileURL, _frames, _frameDelayTimes, &_totalTime, &_width, &_height);
         }
-        
-        self.frame = CGRectMake(0, 0, _width, _height);
+//        
+//        self.frame = CGRectMake(320, 130, _width, _height);
+//        center = CGPointMake(160, 274);
         self.center = center;
+        self.bounds = CGRectMake(160, 274, 320,290);
+
+
     }
     
     return self;

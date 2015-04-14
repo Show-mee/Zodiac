@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="69i-mL-WPh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Oln-rE-YnB">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -8,7 +8,7 @@
         <!--Wheel Demo View Controller-->
         <scene sceneID="Ly9-AT-ksM">
             <objects>
-                <viewController id="jDb-zB-BkE" customClass="WheelDemoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstView" id="jDb-zB-BkE" customClass="WheelDemoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bIu-VZ-Pfh"/>
                         <viewControllerLayoutGuide type="bottom" id="zow-dP-5EY"/>
@@ -91,20 +91,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="573"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgq-ZT-n3m">
-                                <rect key="frame" x="65" y="525" width="77" height="36"/>
+                                <rect key="frame" x="53" y="526" width="77" height="36"/>
                                 <state key="normal" title="Record">
                                     <color key="titleColor" red="0.27450980392156865" green="0.070588235294117646" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWb-yE-s52">
-                                <rect key="frame" x="150" y="520" width="111" height="45"/>
-                                <state key="normal" title="Play">
-                                    <color key="titleColor" red="0.27450980390000002" green="0.070588235289999995" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v7a-Sc-Zwt">
-                                <rect key="frame" x="143" y="524" width="34" height="36"/>
+                                <rect key="frame" x="123" y="524" width="34" height="36"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6A-tQ-Dyf">
                                 <rect key="frame" x="16" y="530" width="46" height="30"/>
@@ -126,6 +120,21 @@
                                     <action selector="resetButtonClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tds-vE-Dli"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1LJ-z3-fMv">
+                                <rect key="frame" x="205" y="527" width="34" height="30"/>
+                                <state key="normal" title="jump">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Oln-rE-YnB" kind="modal" id="jWG-go-yq0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWb-yE-s52">
+                                <rect key="frame" x="156" y="521" width="41" height="42"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" red="0.27450980390000002" green="0.070588235289999995" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -138,6 +147,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="233" y="475"/>
+        </scene>
+        <!--Audio View Controller-->
+        <scene sceneID="IQx-SU-zvc">
+            <objects>
+                <viewController id="Oln-rE-YnB" customClass="AudioViewController" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hjn-1Z-ITC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="644" y="475"/>
         </scene>
     </scenes>
     <resources>

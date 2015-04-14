@@ -2,13 +2,14 @@
 //  ViewController.m
 //  HYScratchCardViewExample
 //
-//  Created by Shadow on 14-5-26.
-//  Copyright (c) 2014年 Shadow. All rights reserved.
+//  Created by
+//  Copyright (c) 2014Year Shadow. All rights reserved.
 //
 
 #import "ViewController.h"
 #import "HYScratchCardView.h"
 #import "SvGifView.h"
+#import "AudioViewController.h"
 
 @interface ViewController ()
 
@@ -52,9 +53,21 @@
         [alertView show];
     };
     [super viewDidLoad];
+    
+    
+    }
 
-    
-    
+
+
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSSet *allTouches = [event allTouches];    //返回与当前接收者有关的所有的触摸对象
+    UITouch *touch = [allTouches anyObject];   //视图中的所有对象
+    CGPoint point = [touch locationInView:[touch view]]; //返回触摸点在视图中的当前坐标
+    int x = point.x;
+    int y = point.y;
+    NSLog(@"touch (x, y) is (%d, %d)", x, y);
 }
 - (IBAction)tipBtn:(id)sender {
 
@@ -68,11 +81,11 @@
 
     }else
     {
-        NSURL *fileUrl = [[NSBundle mainBundle] URLForResource:@"Horse2" withExtension:@"gif"];
-        _gifView = [[SvGifView alloc] initWithCenter:CGPointMake(self.view.bounds.size.width / 2, 130) fileURL:fileUrl];
+        zodiacName = @"02";
+        NSURL *fileUrl = [[NSBundle mainBundle] URLForResource:zodiacName withExtension:@"gif"];
+        _gifView = [[SvGifView alloc] initWithCenter:CGPointMake(160, 274) fileURL:fileUrl];
         _gifView.backgroundColor = [UIColor clearColor];
         _gifView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        _gifView.center = CGPointMake(100, 100);
         
         [self.view addSubview:_gifView];
         [_gifView release];
@@ -197,51 +210,7 @@
     NSLog(@"The answer is: %@",result);
     
     
-    //    NSURL *URL = [NSURL URLWithString:@"http://www.google.com/speech-api/v1/recognize?output=json&lang=zh-CN&maxresults=1&key=AIzaSyAWXF5RWG-BQCJrbwYqUfzwx6DpRUPZ7vE"];
-    //    ASIHTTPRequest *request = [[[ASIHTTPRequest alloc]initWithURL:URL] autorelease];
-    //
-    //    [request addRequestHeader:@"User-Agent" value:@"ASIHTTPRequest"];
-    //    [request addRequestHeader:@"Content-Type" value:@"audio/L16; rate=16000"];
-    //
-    //    [request setRequestMethod:@"POST"];
-    ////
-    ////    NSData *myData = [NSData dataWithContentsOfFile:[recorder.url absoluteString]];
-    //     NSData *myData = [[NSData alloc] initWithContentsOfFile:[recorder.url path]];
-    //    NSLog(@"%@", [recorder.url path]);
-    //
-    ////    NSLog(@"MTDATAdate:%@",myData);
-    //    [request appendPostData:myData];
-    //    [request setDidFinishSelector:@selector(didFinishPost:)];
-    //    [request setDidFailSelector:@selector(didFailedPost:)];
-    //
-    //    [request setDelegate:self];
-    //    [request startAsynchronous];
-    //
-    //    NSError *error = [request error];
-    //    if (!error) {
-    //        //JSON
-    //        NSData *data = [[NSMutableData alloc] initWithData:[request responseData]];
-    //        NSLog(@"data: %@", data);
-    //
-    //       NSDictionary * dic_result =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
-    //
-    //        if (error)
-    //            NSLog(@"JSONObjectWithData error: %@", error);
-    //
-    //
-    //        for (NSMutableDictionary *dictionary in dic_result)
-    //        {
-    //            NSString *arrayString = dictionary[@"hypotheses"];
-    //            if (arrayString)
-    //            {
-    //                NSData *data = [arrayString dataUsingEncoding:NSUTF8StringEncoding];
-    //                NSError *error = nil;
-    //                dictionary[@"hypotheses"] = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    //                if (error)
-    //                    NSLog(@"JSONObjectWithData for array error: %@", error);
-    //            }
-    //        }
-    //    }
+    
     
     
     
