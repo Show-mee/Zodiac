@@ -59,7 +59,6 @@
 
 
 
-
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     NSSet *allTouches = [event allTouches];    //返回与当前接收者有关的所有的触摸对象

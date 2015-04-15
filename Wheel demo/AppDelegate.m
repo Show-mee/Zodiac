@@ -7,16 +7,31 @@
 //
 
 #import "AppDelegate.h"
+#import "IFlyMSC/IFlyMSC.h"
+#import "ViewUIPrefix.h"
+
+NSString *zodiacName;
+
 
 @implementation AppDelegate
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-////    // Override point for customization after application launch.
-//    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-////    // Override point for customization after application launch.
-//    self.viewController = [[[SvGifViewController alloc] initWithNibName:@"SvGifViewController" bundle:nil] autorelease];
-//    self.window.rootViewController = self.viewController;
+    zodiacName = [[NSString alloc]init];
+    [IFlySetting setLogFile:LVL_ALL];
+    [IFlySetting showLogcat:YES];
+    //创建语音配置
+    NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@,timeout=%@",APPID_VALUE,TIMEOUT_VALUE];
+    //所有服务启动前，需要确保执行createUtility
+    
+    [IFlySpeechUtility createUtility:initString];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachePath = [paths objectAtIndex:0];
+    [IFlySetting setLogFilePath:cachePath];
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    
 //    [self.window makeKeyAndVisible];
     
     return YES;

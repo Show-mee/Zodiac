@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+//NSString *zodiacName;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
 
 @end

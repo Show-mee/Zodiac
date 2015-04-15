@@ -7,8 +7,39 @@
 //
 
 #import "AudioViewController.h"
+#import "IFlyMSC/IFlyMSC.h"
 
-@interface AudioViewController ()
+#import "ISEResult.h"
+#import "ISEResultXmlParser.h"
+#import "ViewUIPrefix.h"
+#import "PopupView.h"
+#import "ISEParams.h"
+#import "ISESettingViewController.h"
+
+#pragma mark - const values
+
+NSString* const KCIseViewControllerTitle=@"语音评测";
+NSString* const KCIseHideBtnTitle=@"隐藏";
+NSString* const KCIseSettingBtnTitle=@"设置";
+NSString* const KCIseStartBtnTitle=@"开始评测";
+NSString* const KCIseStopBtnTitle=@"停止评测";
+NSString* const KCIseParseBtnTitle=@"结果解析";
+NSString* const KCIseCancelBtnTitle=@"取消评测";
+
+NSString* const KCTextCNSyllable=@"text_cn_syllable";
+NSString* const KCTextCNWord=@"text_cn_word";
+NSString* const KCTextCNSentence=@"text_cn_sentence";
+NSString* const KCTextENWord=@"text_en_word";
+NSString* const KCTextENSentence=@"text_en_sentence";
+
+NSString* const KCResultNotify1=@"请点击“开始评测”按钮";
+NSString* const KCResultNotify2=@"请朗读以上内容";
+NSString* const KCResultNotify3=@"停止评测，结果等待中...";
+
+
+
+
+@interface AudioViewController ()<IFlySpeechEvaluatorDelegate ,ISESettingDelegate ,ISEResultXmlParserDelegate>
 
 @property (strong, nonatomic) IBOutlet UIButton *imageView;
 
@@ -17,6 +48,29 @@
 @property (retain, nonatomic) AVAudioPlayer *avPlay;
 
 @property (weak, nonatomic) IBOutlet UIImageView *background;
+
+//view
+@property (nonatomic, strong) UITextView *textView;
+@property (nonatomic, assign) CGFloat textViewHeight;
+@property (nonatomic, strong) UITextView *resultView;
+@property (nonatomic, strong) NSString* resultText;
+@property (nonatomic, assign) CGFloat resultViewHeight;
+
+@property (nonatomic, strong) UIButton *startBtn;
+@property (nonatomic, strong) UIButton *stopBtn;
+@property (nonatomic, strong) UIButton *parseBtn;
+@property (nonatomic, strong) UIButton *cancelBtn;
+
+@property (nonatomic, strong) PopupView *popupView;
+@property (nonatomic, strong) ISESettingViewController *settingViewCtrl;
+
+
+
+//  about the evaluator
+@property (nonatomic, strong) IFlySpeechEvaluator *iFlySpeechEvaluator;
+@property (nonatomic, assign) BOOL isSessionResultAppear;
+@property (nonatomic, assign) BOOL isSessionEnd;
+@property (nonatomic, assign) BOOL isValidInput;
 
 @end
 
@@ -32,8 +86,70 @@
     [self.imageView addTarget:self action:@selector(btnDragUp:) forControlEvents:UIControlEventTouchDragExit];
 //    [self.playBtn addTarget:self action:@selector(playRecordSound:) forControlEvents:UIControlEventTouchDown];
     
+    
+    	if (!self.iFlySpeechEvaluator) {
+    		self.iFlySpeechEvaluator = [IFlySpeechEvaluator sharedInstance];
+    	}
+    	self.iFlySpeechEvaluator.delegate = self;
+    	//清空参数，目的是评测和听写的参数采用相同数据
+    	[self.iFlySpeechEvaluator setParameter:@"" forKey:[IFlySpeechConstant PARAMS]];
+        self.iseParams=[ISEParams fromUserDefaults];
+        [self reloadCategoryText];
+    
 }
 
+//-(void)reloadCategoryText{
+//
+//    [self.iFlySpeechEvaluator setParameter:self.iseParams.bos forKey:[IFlySpeechConstant VAD_BOS]];
+//    [self.iFlySpeechEvaluator setParameter:self.iseParams.eos forKey:[IFlySpeechConstant VAD_EOS]];
+//    [self.iFlySpeechEvaluator setParameter:self.iseParams.category forKey:[IFlySpeechConstant ISE_CATEGORY]];
+//    [self.iFlySpeechEvaluator setParameter:self.iseParams.language forKey:[IFlySpeechConstant LANGUAGE]];
+//    [self.iFlySpeechEvaluator setParameter:self.iseParams.rstLevel forKey:[IFlySpeechConstant ISE_RESULT_LEVEL]];
+//    [self.iFlySpeechEvaluator setParameter:self.iseParams.timeout forKey:[IFlySpeechConstant SPEECH_TIMEOUT]];
+//
+//    if ([self.iseParams.language isEqualToString:KCLanguageZHCN]) {
+//        if ([self.iseParams.category isEqualToString:KCCategorySyllable]) {
+//            self.textView.text = LocalizedEvaString(KCTextCNSyllable, nil);
+//        }
+//        else if ([self.iseParams.category isEqualToString:KCCategoryWord]) {
+//            self.textView.text = LocalizedEvaString(KCTextCNWord, nil);
+//        }
+//        else {
+//            self.textView.text = LocalizedEvaString(KCTextCNSentence, nil);
+//        }
+//    }
+//    else {
+//        if ([self.iseParams.category isEqualToString:KCCategoryWord]) {
+//            self.textView.text = LocalizedEvaString(KCTextENWord, nil);
+//        }
+//        else {
+//            self.textView.text = LocalizedEvaString(KCTextENSentence, nil);
+//        }
+//        self.isValidInput=YES;
+//
+//    }
+//}
+
+
+
+- (instancetype)init{
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    _iFlySpeechEvaluator = [IFlySpeechEvaluator sharedInstance];
+    _iFlySpeechEvaluator.delegate = self;
+    
+    //清空参数
+    [_iFlySpeechEvaluator setParameter:@"" forKey:[IFlySpeechConstant PARAMS]];
+    
+    _isSessionResultAppear=YES;
+    _isSessionEnd=YES;
+    _isValidInput=YES;
+    
+    return self;
+    return self;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -169,6 +285,148 @@
     
     return YES;
 }
+
+/*!
+ *  设置界面加载
+ */
+- (void)loadView {
+    [super loadView];
+    
+    // adjust the UI for iOS 7
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
+    if (IOS7_OR_LATER) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+        self.modalPresentationCapturesStatusBarAppearance = NO;
+        self.navigationController.navigationBar.translucent = NO;
+    }
+#endif
+    
+    CGRect frame = [[UIScreen mainScreen] applicationFrame];
+    UIView *mainView = [[UIView alloc] initWithFrame:frame];
+    mainView.backgroundColor = [UIColor whiteColor];
+    self.view = mainView;
+    self.title = KCIseViewControllerTitle;
+    
+    int textViewHeight = self.view.frame.size.height - _DEMO_UI_BUTTON_HEIGHT * 2 - _DEMO_UI_MARGIN * 10 - _DEMO_UI_NAVIGATIONBAR_HEIGHT;
+    
+    //textView
+    UITextView *textView = [[UITextView alloc] initWithFrame:
+                            CGRectMake(_DEMO_UI_MARGIN * 2,
+                                       _DEMO_UI_MARGIN * 2,
+                                       self.view.frame.size.width - _DEMO_UI_MARGIN * 4,
+                                       textViewHeight / 2)];
+    textView.layer.cornerRadius = 8;
+    textView.layer.borderWidth = 1;
+    textView.text = @"";
+    textView.font = [UIFont systemFontOfSize:17.0f];
+    textView.pagingEnabled = YES;
+    
+    UIEdgeInsets edgeInsets = [textView contentInset];
+    edgeInsets.left = 10;
+    edgeInsets.right = 10;
+    edgeInsets.top = 10;
+    edgeInsets.bottom = 10;
+    textView.contentInset = edgeInsets;
+    [textView setEditable:YES];
+    self.textView = textView;
+    self.textViewHeight=self.textView.frame.size.height;
+    [self.view addSubview:textView];
+    
+    //resultView
+    UITextView *resultView = [[UITextView alloc] initWithFrame:
+                              CGRectMake(_DEMO_UI_MARGIN * 2,
+                                         textView.frame.size.height + _DEMO_UI_MARGIN * 3,
+                                         self.view.frame.size.width - _DEMO_UI_MARGIN * 4,
+                                         textViewHeight / 2)];
+    resultView.layer.cornerRadius = 8;
+    resultView.layer.borderWidth = 1;
+    resultView.text = @"";
+    resultView.font = [UIFont systemFontOfSize:17.0f];
+    resultView.pagingEnabled = YES;
+    
+    resultView.contentInset = edgeInsets;
+    [resultView setEditable:NO];
+    self.resultView = resultView;
+    self.resultView.text =KCResultNotify1;
+    self.resultViewHeight=self.resultView.frame.size.height;
+    [self.view addSubview:resultView];
+    
+    //键盘工具栏
+    UIBarButtonItem *spaceBtnItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                                  target:nil
+                                                                                  action:nil];
+    UIBarButtonItem *hideBtnItem = [[UIBarButtonItem alloc] initWithTitle:KCIseHideBtnTitle
+                                                                    style:UIBarButtonItemStylePlain
+                                                                   target:self
+                                                                   action:@selector(onKeyBoardDown:)];
+    [hideBtnItem setTintColor:[UIColor whiteColor]];
+    UIToolbar *keyboardToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, _DEMO_UI_TOOLBAR_HEIGHT)];
+    keyboardToolbar.barStyle = UIBarStyleBlackTranslucent;
+    NSArray *array = [NSArray arrayWithObjects:spaceBtnItem, hideBtnItem, nil];
+    [keyboardToolbar setItems:array];
+    textView.inputAccessoryView = keyboardToolbar;
+    textView.textAlignment = IFLY_ALIGN_LEFT;
+    
+    
+    //开始
+    UIButton *startBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [startBtn setTitle:KCIseStartBtnTitle forState:UIControlStateNormal];
+    startBtn.frame = CGRectMake(_DEMO_UI_MARGIN * 2,
+                                resultView.frame.origin.y + resultView.frame.size.height + _DEMO_UI_MARGIN,
+                                (self.view.frame.size.width - _DEMO_UI_PADDING * 3) / 2,
+                                _DEMO_UI_BUTTON_HEIGHT);
+    
+    [startBtn addTarget:self action:@selector(onBtnStart:) forControlEvents:UIControlEventTouchUpInside];
+    self.startBtn = startBtn;
+    [self.view addSubview:startBtn];
+    
+    UIButton *parseBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [parseBtn setTitle:KCIseParseBtnTitle forState:UIControlStateNormal];
+    parseBtn.frame = CGRectMake(startBtn.frame.origin.x + _DEMO_UI_PADDING + startBtn.frame.size.width,
+                                resultView.frame.origin.y + resultView.frame.size.height + _DEMO_UI_MARGIN,
+                                startBtn.frame.size.width,
+                                startBtn.frame.size.height);
+    
+    [parseBtn addTarget:self action:@selector(onBtnParse:) forControlEvents:UIControlEventTouchUpInside];
+    self.parseBtn = parseBtn;
+    [self.view addSubview:parseBtn];
+    
+    //停止
+    UIButton *stopBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [stopBtn setTitle:KCIseStopBtnTitle forState:UIControlStateNormal];
+    stopBtn.frame = CGRectMake(_DEMO_UI_PADDING,
+                               startBtn.frame.origin.y + startBtn.frame.size.height + _DEMO_UI_MARGIN,
+                               (self.view.frame.size.width - _DEMO_UI_PADDING * 3) / 2,
+                               _DEMO_UI_BUTTON_HEIGHT);
+    [stopBtn addTarget:self action:@selector(onBtnStop:) forControlEvents:UIControlEventTouchUpInside];
+    self.stopBtn = stopBtn;
+    [self.view addSubview:stopBtn];
+    
+    
+    //取消
+    UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [cancelBtn setTitle:KCIseCancelBtnTitle forState:UIControlStateNormal];
+    cancelBtn.frame = CGRectMake(stopBtn.frame.origin.x + _DEMO_UI_PADDING + stopBtn.frame.size.width,
+                                 stopBtn.frame.origin.y,
+                                 stopBtn.frame.size.width,
+                                 stopBtn.frame.size.height);
+    [cancelBtn addTarget:self action:@selector(onBtnCancel:) forControlEvents:UIControlEventTouchUpInside];
+    self.cancelBtn = cancelBtn;
+    [self.view addSubview:cancelBtn];
+    
+    //popupView
+    self.popupView = [[PopupView alloc]initWithFrame:CGRectMake(100, 300, 0, 0)];
+    self.popupView.ParentView = self.view;
+    
+//    //SettingView
+//    UIBarButtonItem *settingBtn = [[UIBarButtonItem alloc] initWithTitle:KCIseSettingBtnTitle
+//                                                                   style:UIBarButtonItemStylePlain
+//                                                                  target:self
+//                                                                  action:@selector(onSetting:)];
+//    self.navigationItem.rightBarButtonItem = settingBtn;
+}
+
 
 - (IBAction)btnDragUp:(id)sender
 {

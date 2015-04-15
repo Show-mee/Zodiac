@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Oln-rE-YnB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jDb-zB-BkE">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -9,26 +9,9 @@
         <scene sceneID="Ly9-AT-ksM">
             <objects>
                 <viewController storyboardIdentifier="FirstView" id="jDb-zB-BkE" customClass="WheelDemoViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bIu-VZ-Pfh"/>
-                        <viewControllerLayoutGuide type="bottom" id="zow-dP-5EY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Yaf-Ye-4UI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68e-J2-65k">
-                                <rect key="frame" x="237" y="-5" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="69i-mL-WPh" kind="modal" id="d9j-Mn-xPO"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                    <connections>
+                        <segue destination="69i-mL-WPh" kind="modal" identifier="wheelToScatch" id="1oO-tC-KBA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YSX-N1-mqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -37,7 +20,7 @@
         <!--Sv Gif View Controller-->
         <scene sceneID="dM0-ZR-DvO">
             <objects>
-                <viewController id="69i-mL-WPh" customClass="SvGifViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GIFoverview" id="69i-mL-WPh" customClass="SvGifViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iey-oW-347"/>
                         <viewControllerLayoutGuide type="bottom" id="4oA-k5-4Bg"/>

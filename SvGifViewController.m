@@ -14,7 +14,10 @@
     SvGifView       *_gifView;
 }
 
+
 @end
+
+extern NSString * zodiacName;
 
 @implementation SvGifViewController
 
@@ -23,7 +26,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    NSURL *fileUrl = [[NSBundle mainBundle] URLForResource:@"Horse2" withExtension:@"gif"];
+    NSLog(@"!!zodiacName %@",zodiacName);
+    NSURL *fileUrl;
+    if ([zodiacName isEqualToString: @"01"])
+    {
+        fileUrl = [[NSBundle mainBundle] URLForResource:@"01" withExtension:@"gif"];
+    }else if([zodiacName isEqualToString: @"02"]){
+         fileUrl = [[NSBundle mainBundle] URLForResource:@"02" withExtension:@"gif"];
+    }else{
+        fileUrl = [[NSBundle mainBundle] URLForResource:@"07" withExtension:@"gif"];
+    }
+    
+//                        NSURL *fileUrl = [[NSBundle mainBundle] URLForResource:@"Horse2" withExtension:@"gif"];
     _gifView = [[SvGifView alloc] initWithCenter:CGPointMake(self.view.bounds.size.width / 2, 130) fileURL:fileUrl];
     _gifView.backgroundColor = [UIColor clearColor];
     _gifView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;

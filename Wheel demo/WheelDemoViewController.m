@@ -56,63 +56,8 @@
     fourthCircle.delegate = self;
     CDCircleOverlayView *fourthOverlay = [[CDCircleOverlayView alloc] initWithCircle:fourthCircle];
     
-    self.view.backgroundColor = [UIColor grayColor];
+    self.view.backgroundColor = [UIColor clearColor];
     
-    //Set this property to change color of the overlay thumb (by default it's light gray with alpha set to 0.3f
-    
-//     circle.overlayView.overlayThumb.arcColor = [UIColor colorWithRed:0.00f green:1.00f blue:0.25f alpha:0.3];
-//    circle.overlayView.overlayThumb.arcColor = [UIColor colorWithRed:98/255.0f green:29/255.0f blue:29/255.0f alpha:0.3f];
-    
-    //Set this property to change color of a circle. It may be usable when you want to achieve specyfic effect (e.g. semi transparent thumbs, and coloured circle will create some effect
-    
-//     circle.circleColor = [UIColor blackColor];
-//    firstCircle.circleColor = [UIColor colorWithRed:98/255.0f green:29/255.0f blue:29/255.0f alpha:0.3f];
-    
-//    secondCircle.circleColor = [UIColor colorWithRed:100/255.0f green:100/255.0f blue:100/255.0f alpha:0.3f];
-    
-//    thirdCircle.circleColor = [UIColor colorWithRed:100/255.0f green:100/255.0f blue:100/255.0f alpha:0.3f];
-    
-    
-    //To modify single thumb, take it's pointer as follows "[circle.thumbs objectAtIndex:x];" and then  you can set it's properties
-    
-    
-    /*
-     
-     CDCircleThumb *thumb = [circle.thumbs objectAtIndex:0];
-     
-     
-     //Color of a highlited icon on thumb
-     [thumb.iconView setHighlitedIconColor:[UIColor blueColor]];
-     //Color of the separator
-     thumb.separatorColor = [UIColor redColor];
-     //Separator style may be basic and None
-     thumb.separatorStyle = CDCircleThumbsSeparatorNone;
-     //If gradientFill is set to NO, a thumb is coloured with solid color
-     thumb.gradientFill = YES;
-     //Colors of a gradient
-     thumb.gradientColors = [NSArray arrayWithObjects:(id) [UIColor whiteColor].CGColor, (id) [UIColor yellowColor].CGColor, (id) [UIColor cyanColor].CGColor, nil];
-     //If you omit locations of colors, colors will be placed symmetrical
-     thumb.colorsLocations = [NSMutableArray arrayWithObjects:[NSNumber numberWithFloat:0.00f], [NSNumber numberWithFloat:0.30f], [NSNumber numberWithFloat:1.00f], nil];
-     
-     
-     */
-    
-    
-    
-    
-//    To modify all thumbs, simply iterate through them and change their properties.
-    /*
-     for (CDCircleThumb *thumb in circle.thumbs) {
-     [thumb.iconView setHighlitedIconColor:[UIColor redColor]];
-     thumb.separatorColor = [UIColor blackColor];
-     thumb.separatorStyle = CDCircleThumbsSeparatorBasic;
-     thumb.gradientFill = NO;
-     thumb.arcColor = [UIColor redColor];
-     thumb.gradientColors = [NSArray arrayWithObjects:(id) [UIColor blackColor].CGColor, (id) [UIColor yellowColor].CGColor, (id) [UIColor blueColor].CGColor, nil];
-     thumb.colorsLocations = [NSMutableArray arrayWithObjects:[NSNumber numberWithFloat:0.00f], [NSNumber numberWithFloat:0.30f], [NSNumber numberWithFloat:1.00f], nil];
-     
-     }
-     */
     
     [self.view addSubview:fourthCircle];
     [self.view addSubview:fourthOverlay];
@@ -125,6 +70,27 @@
     
     [self.view addSubview:firstCircle];
     [self.view addSubview:firstOverlay];
+    
+    UIButton *startBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [startBtn setTitle:@"start" forState:UIControlStateNormal];
+//    startBtn.bounds = CGRectMake(160, 274, 320,290);
+    startBtn.frame = CGRectMake(100, 100, 100, 100);
+    
+    [startBtn addTarget:self action:@selector(onBtnStart:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:startBtn];
+    
+}
+
+/*
+ * @开始录音
+ */
+- (void) onBtnStart:(id) sender
+{
+    UIStoryboard *secondStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    zodiacName = @"07";
+        [self presentModalViewController:[secondStoryboard instantiateViewControllerWithIdentifier:@"GIFoverview"] animated:YES];
+    
+    
 }
 
 - (void)viewDidUnload
@@ -275,7 +241,7 @@
 
     NSString *fileString = [[[NSBundle mainBundle] pathsForResourcesOfType:@"png" inDirectory:@"C1/."] objectAtIndex:row];
     
-    NSLog(@"C1 ROW: %d, FILE: %@", row, fileString);
+
     
     return [UIImage imageWithContentsOfFile:fileString];
     
@@ -285,7 +251,7 @@
     
     NSString *fileString2 = [[[NSBundle mainBundle] pathsForResourcesOfType:@"png" inDirectory:@"C2/."] objectAtIndex:row];
     
-    NSLog(@"C2 ROW: %d, FILE: %@", row, fileString2);
+
     
     return [UIImage imageWithContentsOfFile:fileString2];
     
@@ -295,7 +261,7 @@
     
     NSString *fileString3 = [[[NSBundle mainBundle] pathsForResourcesOfType:@"png" inDirectory:@"C3/."] objectAtIndex:row];
     
-    NSLog(@"C3 ROW: %d, FILE: %@", row, fileString3);
+
     
     return [UIImage imageWithContentsOfFile:fileString3];
     
@@ -304,7 +270,7 @@
 -(UIImage *) fourthCircle:(CDCircle *)fourthCircle iconForThumbAtRow:(NSInteger)row {
     NSString *fileString4 = [[[NSBundle mainBundle] pathsForResourcesOfType:@"png" inDirectory:@"C4/."] objectAtIndex:row];
     
-    NSLog(@"C4 ROW: %d, FILE: %@", row, fileString4);
+
     
     return [UIImage imageWithContentsOfFile:fileString4];
     
