@@ -2,19 +2,22 @@
 //  AudioViewController.m
 //  ChineseWheel
 //
-//  Created by GraceXu on 14/04/15.
+//  Created by GraceXu on 15/04/15.
 //
 //
 
+
 #import "AudioViewController.h"
+#import "ISESettingViewController.h"
+#import "PopupView.h"
+#import "ISEParams.h"
 #import "IFlyMSC/IFlyMSC.h"
 
 #import "ISEResult.h"
 #import "ISEResultXmlParser.h"
 #import "ViewUIPrefix.h"
-#import "PopupView.h"
-#import "ISEParams.h"
-#import "ISESettingViewController.h"
+
+extern NSString * zodiacName;
 
 #pragma mark - const values
 
@@ -26,7 +29,7 @@ NSString* const KCIseStopBtnTitle=@"停止评测";
 NSString* const KCIseParseBtnTitle=@"结果解析";
 NSString* const KCIseCancelBtnTitle=@"取消评测";
 
-NSString* const KCTextCNSyllable=@"text_cn_syllable";
+NSString* const KCTextCNSyllable=@"马";
 NSString* const KCTextCNWord=@"text_cn_word";
 NSString* const KCTextCNSentence=@"text_cn_sentence";
 NSString* const KCTextENWord=@"text_en_word";
@@ -37,19 +40,10 @@ NSString* const KCResultNotify2=@"请朗读以上内容";
 NSString* const KCResultNotify3=@"停止评测，结果等待中...";
 
 
+#pragma mark -
 
+@interface AudioViewController () <IFlySpeechEvaluatorDelegate ,ISESettingDelegate ,ISEResultXmlParserDelegate>
 
-@interface AudioViewController ()<IFlySpeechEvaluatorDelegate ,ISESettingDelegate ,ISEResultXmlParserDelegate>
-
-@property (strong, nonatomic) IBOutlet UIButton *imageView;
-
-
-
-@property (retain, nonatomic) AVAudioPlayer *avPlay;
-
-@property (weak, nonatomic) IBOutlet UIImageView *background;
-
-//view
 @property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, assign) CGFloat textViewHeight;
 @property (nonatomic, strong) UITextView *resultView;
@@ -63,76 +57,33 @@ NSString* const KCResultNotify3=@"停止评测，结果等待中...";
 
 @property (nonatomic, strong) PopupView *popupView;
 @property (nonatomic, strong) ISESettingViewController *settingViewCtrl;
-
-
-
-//  about the evaluator
 @property (nonatomic, strong) IFlySpeechEvaluator *iFlySpeechEvaluator;
+
 @property (nonatomic, assign) BOOL isSessionResultAppear;
 @property (nonatomic, assign) BOOL isSessionEnd;
+
 @property (nonatomic, assign) BOOL isValidInput;
+
+@property (nonatomic, strong) NSString * result;
+@property (strong, nonatomic) IBOutlet UIButton *recordBtn;
+
+@property (strong, nonatomic) IBOutlet UIImageView *backgroundView;
+
 
 @end
 
+
+
+
 @implementation AudioViewController
 
-- (void)viewDidLoad {
-//    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    _background.image = [UIImage imageNamed:@"07background"];
-    [self audio];
-    [self.imageView addTarget:self action:@selector(btnDown:) forControlEvents:UIControlEventTouchDown];
-    [self.imageView addTarget:self action:@selector(btnUp:) forControlEvents:UIControlEventTouchUpInside];
-    [self.imageView addTarget:self action:@selector(btnDragUp:) forControlEvents:UIControlEventTouchDragExit];
-//    [self.playBtn addTarget:self action:@selector(playRecordSound:) forControlEvents:UIControlEventTouchDown];
-    
-    
-    	if (!self.iFlySpeechEvaluator) {
-    		self.iFlySpeechEvaluator = [IFlySpeechEvaluator sharedInstance];
-    	}
-    	self.iFlySpeechEvaluator.delegate = self;
-    	//清空参数，目的是评测和听写的参数采用相同数据
-    	[self.iFlySpeechEvaluator setParameter:@"" forKey:[IFlySpeechConstant PARAMS]];
-        self.iseParams=[ISEParams fromUserDefaults];
-        [self reloadCategoryText];
-    
+static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
+    return NSLocalizedStringFromTable(key, @"eva/eva", comment);
 }
 
-//-(void)reloadCategoryText{
-//
-//    [self.iFlySpeechEvaluator setParameter:self.iseParams.bos forKey:[IFlySpeechConstant VAD_BOS]];
-//    [self.iFlySpeechEvaluator setParameter:self.iseParams.eos forKey:[IFlySpeechConstant VAD_EOS]];
-//    [self.iFlySpeechEvaluator setParameter:self.iseParams.category forKey:[IFlySpeechConstant ISE_CATEGORY]];
-//    [self.iFlySpeechEvaluator setParameter:self.iseParams.language forKey:[IFlySpeechConstant LANGUAGE]];
-//    [self.iFlySpeechEvaluator setParameter:self.iseParams.rstLevel forKey:[IFlySpeechConstant ISE_RESULT_LEVEL]];
-//    [self.iFlySpeechEvaluator setParameter:self.iseParams.timeout forKey:[IFlySpeechConstant SPEECH_TIMEOUT]];
-//
-//    if ([self.iseParams.language isEqualToString:KCLanguageZHCN]) {
-//        if ([self.iseParams.category isEqualToString:KCCategorySyllable]) {
-//            self.textView.text = LocalizedEvaString(KCTextCNSyllable, nil);
-//        }
-//        else if ([self.iseParams.category isEqualToString:KCCategoryWord]) {
-//            self.textView.text = LocalizedEvaString(KCTextCNWord, nil);
-//        }
-//        else {
-//            self.textView.text = LocalizedEvaString(KCTextCNSentence, nil);
-//        }
-//    }
-//    else {
-//        if ([self.iseParams.category isEqualToString:KCCategoryWord]) {
-//            self.textView.text = LocalizedEvaString(KCTextENWord, nil);
-//        }
-//        else {
-//            self.textView.text = LocalizedEvaString(KCTextENSentence, nil);
-//        }
-//        self.isValidInput=YES;
-//
-//    }
-//}
+#pragma mark -
 
-
-
-- (instancetype)init{
+- (instancetype)init {
     self = [super init];
     if (!self) {
         return nil;
@@ -148,166 +99,50 @@ NSString* const KCResultNotify3=@"停止评测，结果等待中...";
     _isValidInput=YES;
     
     return self;
-    return self;
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-- (IBAction)jumpToWheel:(id)sender {
-    UIStoryboard *secondStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    [self presentModalViewController:[secondStoryboard instantiateViewControllerWithIdentifier:@"FirstView"] animated:YES];
 }
 
 
-- (IBAction)jumpBack:(id)sender {
-    UIStoryboard *secondStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    [self presentModalViewController:[secondStoryboard instantiateViewControllerWithIdentifier:@"ScatchView"] animated:YES];
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    
+    [super viewWillAppear:animated];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-
-- (IBAction)playRecordSound:(id)sender
-{
-    if (self.avPlay.playing) {
-        [self.avPlay stop];
-        return;
-    }
-    AVAudioPlayer *player = [[AVAudioPlayer alloc]initWithContentsOfURL:recorder.url error:nil];
-    self.avPlay = player;
-    [self.avPlay play];
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    
+    // unregister for keyboard notifications while not visible.
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
+    
+    [self.iFlySpeechEvaluator cancel];
+    self.resultView.text =KCResultNotify1;
+    self.resultText=@"";
+    
+    [super viewWillDisappear:animated];
 }
 
-- (IBAction)btnDown:(id)sender
-{
-    //创建录音文件，准备录音
-    if ([recorder prepareToRecord]) {
-        //开始
-        [recorder record];
-    }
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
-    //设置定时检测
-    timer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(detectionVoice) userInfo:nil repeats:YES];
-}
-- (IBAction)btnUp:(id)sender
-{
-    double cTime = recorder.currentTime;
-    if (cTime > 1) {//如果录制时间<2 不发送
-        NSLog(@"Record Finish");
-        //        [self sendAudioToServer];
-    }else {
-        //删除记录的文件
-        [recorder deleteRecording];
-        //删除存储的
-    }
-    [recorder stop];
-    //    NSData *data = [NSData dataWithContentsOfURL:recorder.url];
-    //    NSLog(@"%@", data);
-    [self updateImage];
-    [timer invalidate];
-}
-
-#pragma mark -
-#pragma mark 录音设置
-
-
-- (NSDictionary *) audioRecordingSettings{
-    NSDictionary *result = nil;
-    /* Let's prepare the audio recorder options in the dictionary.
-     Later we will use this dictionary to instantiate an audio
-     recorder of type AVAudioRecorder */
-    NSMutableDictionary *settings = [[NSMutableDictionary alloc] init];
-    
-    [settings setValue:[NSNumber numberWithInteger:kAudioFormatLinearPCM]
-                forKey:AVFormatIDKey];
-    
-    [settings setValue:[NSNumber numberWithFloat:16000]
-                forKey:AVSampleRateKey];
-    
-    [settings setValue:[NSNumber numberWithInteger:1]
-                forKey:AVNumberOfChannelsKey];
-    
-    [settings setValue:[NSNumber numberWithInteger:AVAudioQualityLow]
-                forKey:AVEncoderAudioQualityKey];
-    
-    result = [NSDictionary dictionaryWithDictionary:settings];
-    return result;
-}
-
-
-- (BOOL) sendAudioToServer
-{
-    
-    //    NSData *myData = [NSData dataWithContentsOfFile:[recorder.url absoluteString]];
-    NSLog(@"%@",recorder.url);
-    NSData *myData = [NSData dataWithContentsOfFile:[recorder.url path]];
-    //    NSLog(@"%@",myData);
-    
-    //NSString *audio = [NSString stringWithContentsOfFile:[NSString stringWithFormat:@"%@/recordTest.flac", recDir]];
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
-                                    initWithURL:[NSURL
-                                                 URLWithString:@"http://www.google.com/speech-api/v2/recognize?output=json&lang=zh-CN&key=AIzaSyAWXF5RWG-BQCJrbwYqUfzwx6DpRUPZ7vE"]];
-    
-    [request setHTTPMethod:@"POST"];
-    
-    //set headers
-    
-    [request addValue:@"Content-Type" forHTTPHeaderField:@"audio/L16; rate=16000"];
-    
-    [request addValue:@"audio/L16; rate=16000" forHTTPHeaderField:@"Content-Type"];
-    
-    [request setHTTPBody:myData];
-    
-    [request setValue:[NSString stringWithFormat:@"%lu",(unsigned long)[myData length]] forHTTPHeaderField:@"Content-length"];
-    
-    NSHTTPURLResponse* urlResponse = nil;
-    NSError *error = [[NSError alloc] init];
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
-    NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    
-    NSLog(@"The answer is: %@",result);
-    
-    
-    
-    
-    
-    
-    return YES;
-}
-
-/*!
- *  设置界面加载
- */
-- (void)loadView {
-    [super loadView];
-    
-    // adjust the UI for iOS 7
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
-    if (IOS7_OR_LATER) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-        self.extendedLayoutIncludesOpaqueBars = NO;
-        self.modalPresentationCapturesStatusBarAppearance = NO;
-        self.navigationController.navigationBar.translucent = NO;
-    }
-#endif
-    
-    CGRect frame = [[UIScreen mainScreen] applicationFrame];
-    UIView *mainView = [[UIView alloc] initWithFrame:frame];
-    mainView.backgroundColor = [UIColor whiteColor];
-    self.view = mainView;
-    self.title = KCIseViewControllerTitle;
-    
+    NSString * backName = [zodiacName stringByAppendingString:@"_background.png"];
+    [self.backgroundView  setImage:[UIImage imageNamed:zodiacName]];
     int textViewHeight = self.view.frame.size.height - _DEMO_UI_BUTTON_HEIGHT * 2 - _DEMO_UI_MARGIN * 10 - _DEMO_UI_NAVIGATIONBAR_HEIGHT;
     
     //textView
@@ -316,6 +151,7 @@ NSString* const KCResultNotify3=@"停止评测，结果等待中...";
                                        _DEMO_UI_MARGIN * 2,
                                        self.view.frame.size.width - _DEMO_UI_MARGIN * 4,
                                        textViewHeight / 2)];
+    
     textView.layer.cornerRadius = 8;
     textView.layer.borderWidth = 1;
     textView.text = @"";
@@ -331,7 +167,7 @@ NSString* const KCResultNotify3=@"停止评测，结果等待中...";
     [textView setEditable:YES];
     self.textView = textView;
     self.textViewHeight=self.textView.frame.size.height;
-    [self.view addSubview:textView];
+    //        [self.view addSubview:textView];
     
     //resultView
     UITextView *resultView = [[UITextView alloc] initWithFrame:
@@ -350,23 +186,8 @@ NSString* const KCResultNotify3=@"停止评测，结果等待中...";
     self.resultView = resultView;
     self.resultView.text =KCResultNotify1;
     self.resultViewHeight=self.resultView.frame.size.height;
-    [self.view addSubview:resultView];
+    //        [self.view addSubview:resultView];
     
-    //键盘工具栏
-    UIBarButtonItem *spaceBtnItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                                                                  target:nil
-                                                                                  action:nil];
-    UIBarButtonItem *hideBtnItem = [[UIBarButtonItem alloc] initWithTitle:KCIseHideBtnTitle
-                                                                    style:UIBarButtonItemStylePlain
-                                                                   target:self
-                                                                   action:@selector(onKeyBoardDown:)];
-    [hideBtnItem setTintColor:[UIColor whiteColor]];
-    UIToolbar *keyboardToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, _DEMO_UI_TOOLBAR_HEIGHT)];
-    keyboardToolbar.barStyle = UIBarStyleBlackTranslucent;
-    NSArray *array = [NSArray arrayWithObjects:spaceBtnItem, hideBtnItem, nil];
-    [keyboardToolbar setItems:array];
-    textView.inputAccessoryView = keyboardToolbar;
-    textView.textAlignment = IFLY_ALIGN_LEFT;
     
     
     //开始
@@ -378,8 +199,15 @@ NSString* const KCResultNotify3=@"停止评测，结果等待中...";
                                 _DEMO_UI_BUTTON_HEIGHT);
     
     [startBtn addTarget:self action:@selector(onBtnStart:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
     self.startBtn = startBtn;
     [self.view addSubview:startBtn];
+    
+    
+    [self.recordBtn addTarget:self action:@selector(onBtnStart:) forControlEvents:UIControlEventTouchDown];
+    [self.recordBtn addTarget:self action:@selector(onBtnStop:) forControlEvents:UIControlEventTouchUpInside];
+    
     
     UIButton *parseBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [parseBtn setTitle:KCIseParseBtnTitle forState:UIControlStateNormal];
@@ -419,98 +247,366 @@ NSString* const KCResultNotify3=@"停止评测，结果等待中...";
     self.popupView = [[PopupView alloc]initWithFrame:CGRectMake(100, 300, 0, 0)];
     self.popupView.ParentView = self.view;
     
-//    //SettingView
-//    UIBarButtonItem *settingBtn = [[UIBarButtonItem alloc] initWithTitle:KCIseSettingBtnTitle
-//                                                                   style:UIBarButtonItemStylePlain
-//                                                                  target:self
-//                                                                  action:@selector(onSetting:)];
-//    self.navigationItem.rightBarButtonItem = settingBtn;
+    //SettingView
+    UIBarButtonItem *settingBtn = [[UIBarButtonItem alloc] initWithTitle:KCIseSettingBtnTitle
+                                                                   style:UIBarButtonItemStylePlain
+                                                                  target:self
+                                                                  action:@selector(onSetting:)];
+    
+    
+    
+    
+    if (!self.iFlySpeechEvaluator) {
+        self.iFlySpeechEvaluator = [IFlySpeechEvaluator sharedInstance];
+    }
+    self.iFlySpeechEvaluator.delegate = self;
+    //清空参数，目的是评测和听写的参数采用相同数据
+    [self.iFlySpeechEvaluator setParameter:@"" forKey:[IFlySpeechConstant PARAMS]];
+    self.iseParams=[ISEParams fromUserDefaults];
+    [self reloadCategoryText];
 }
 
-
-- (IBAction)btnDragUp:(id)sender
-{
-    //删除录制文件
-    [recorder deleteRecording];
-    [recorder stop];
-    [timer invalidate];
+-(void)reloadCategoryText{
     
-    NSLog(@"取消发送");
-}
-- (void)audio
-{
-    //录音设置
-    NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc]init];
-    //设置录音格式  AVFormatIDKey==kAudioFormatLinearPCM
-    [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatMPEG4AAC] forKey:AVFormatIDKey];
-    //设置录音采样率(Hz) 如：AVSampleRateKey==8000/44100/96000（影响音频的质量）
-    [recordSetting setValue:[NSNumber numberWithFloat:44100] forKey:AVSampleRateKey];
-    //录音通道数  1 或 2
-    [recordSetting setValue:[NSNumber numberWithInt:1] forKey:AVNumberOfChannelsKey];
-    //线性采样位数  8、16、24、32
-    [recordSetting setValue:[NSNumber numberWithInt:16] forKey:AVLinearPCMBitDepthKey];
-    //录音的质量
-    [recordSetting setValue:[NSNumber numberWithInt:AVAudioQualityHigh] forKey:AVEncoderAudioQualityKey];
+    [self.iFlySpeechEvaluator setParameter:self.iseParams.bos forKey:[IFlySpeechConstant VAD_BOS]];
+    [self.iFlySpeechEvaluator setParameter:self.iseParams.eos forKey:[IFlySpeechConstant VAD_EOS]];
+    [self.iFlySpeechEvaluator setParameter:self.iseParams.category forKey:[IFlySpeechConstant ISE_CATEGORY]];
+    [self.iFlySpeechEvaluator setParameter:self.iseParams.language forKey:[IFlySpeechConstant LANGUAGE]];
+    [self.iFlySpeechEvaluator setParameter:self.iseParams.rstLevel forKey:[IFlySpeechConstant ISE_RESULT_LEVEL]];
+    [self.iFlySpeechEvaluator setParameter:self.iseParams.timeout forKey:[IFlySpeechConstant SPEECH_TIMEOUT]];
     
-    NSString *strUrl = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/lll.wav", strUrl]];
-    
-    
-    NSError *error;
-    
-    //初始化
-    
-    recorder = [[AVAudioRecorder alloc]initWithURL:url settings:[self audioRecordingSettings] error:&error];
-    //开启音量检测
-    recorder.meteringEnabled = YES;
-    recorder.delegate = self;
-}
-
-- (void)detectionVoice
-{
-    [recorder updateMeters];//刷新音量数据
-    //获取音量的平均值  [recorder averagePowerForChannel:0];
-    //音量的最大值  [recorder peakPowerForChannel:0];
-    
-    double lowPassResults = pow(10, (0.05 * [recorder peakPowerForChannel:0]));
-    NSLog(@"%lf",lowPassResults);
-    //最大50  0
-    //图片 小-》大
-    if (0<lowPassResults<=0.06) {
-        [self.imageView setBackgroundImage:[UIImage imageNamed:@"record_animate_01.png"] forState:UIControlStateNormal];
-    }else if (0.06<lowPassResults<=0.13) {
-        [self.imageView setImage:[UIImage imageNamed:@"record_animate_02.png"] forState:UIControlStateNormal];
-    }else if (0.13<lowPassResults<=0.20) {
-        [self.imageView setImage:[UIImage imageNamed:@"record_animate_03.png"] forState:UIControlStateNormal];
-    }else if (0.20<lowPassResults<=0.27) {
-        [self.imageView setImage:[UIImage imageNamed:@"record_animate_04.png"] forState:UIControlStateNormal];
-    }else if (0.27<lowPassResults<=0.34) {
-        [self.imageView setImage:[UIImage imageNamed:@"record_animate_05.png"] forState:UIControlStateNormal];
-    }else if (0.34<lowPassResults<=0.41) {
-        [self.imageView setImage:[UIImage imageNamed:@"record_animate_06.png"] forState:UIControlStateNormal];
-    }else if (0.41<lowPassResults<=0.48) {
-        [self.imageView setImage:[UIImage imageNamed:@"record_animate_07.png"] forState:UIControlStateNormal];
-    }else if (0.48<lowPassResults<=0.55) {
-        [self.imageView setImage:[UIImage imageNamed:@"record_animate_08.png"] forState:UIControlStateNormal];
-    }else if (0.55<lowPassResults<=0.62) {
-        [self.imageView setImage:[UIImage imageNamed:@"record_animate_09.png"] forState:UIControlStateNormal];
-    }else if (0.62<lowPassResults<=0.69) {
-        [self.imageView setImage:[UIImage imageNamed:@"record_animate_10.png"] forState:UIControlStateNormal];
-
-    }else {
-        [self.imageView setImage:[UIImage imageNamed:@"record_animate_11.png"] forState:UIControlStateNormal];
-
+    if ([self.iseParams.language isEqualToString:KCLanguageZHCN]) {
+        if ([self.iseParams.category isEqualToString:KCCategorySyllable]) {
+            self.textView.text = LocalizedEvaString(KCTextCNSyllable, nil);
+        }
+        else if ([self.iseParams.category isEqualToString:KCCategoryWord]) {
+            self.textView.text = LocalizedEvaString(KCTextCNWord, nil);
+        }
+        else {
+            self.textView.text = LocalizedEvaString(KCTextCNSentence, nil);
+        }
+    }
+    else {
+        if ([self.iseParams.category isEqualToString:KCCategoryWord]) {
+            self.textView.text = LocalizedEvaString(KCTextENWord, nil);
+        }
+        else {
+            self.textView.text = LocalizedEvaString(KCTextENSentence, nil);
+        }
+        self.isValidInput=YES;
+        
     }
 }
+- (IBAction)recordBtnDown:(id)sender {
+    
+}
 
-- (void) updateImage
-{
-        [self.imageView setImage:[UIImage imageNamed:@"record_animate_01.png"] forState:UIControlStateNormal];
+-(void)resetBtnSatus:(IFlySpeechError *)errorCode{
+    
+    if(errorCode && errorCode.errorCode!=0){
+        self.isSessionResultAppear=NO;
+        self.isSessionEnd=YES;
+        self.resultView.text =KCResultNotify1;
+        self.resultText=@"";
+    }else{
+        self.isSessionResultAppear=YES;
+        self.isSessionEnd=YES;
+    }
+    self.startBtn.enabled=YES;
+}
+
+#pragma mark - keyboard
+
+/*!
+ *  隐藏键盘
+ *
+ *  @param sender textView or resultView
+ */
+-(void)onKeyBoardDown:(id) sender{
+    [self.textView resignFirstResponder];
 }
 
 
 
 
+#pragma mark -
+#pragma mark - Button handler
+
+
+/*!
+ *  开始录音
+ *
+ *  @param sender startBtn
+ */
+- (void)onBtnStart:(id)sender {
+    
+    [self.iFlySpeechEvaluator setParameter:@"16000" forKey:[IFlySpeechConstant SAMPLE_RATE]];
+    [self.iFlySpeechEvaluator setParameter:@"utf-8" forKey:[IFlySpeechConstant TEXT_ENCODING]];
+    [self.iFlySpeechEvaluator setParameter:@"xml" forKey:[IFlySpeechConstant ISE_RESULT_TYPE]];
+    
+    
+    
+    NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    
+    NSLog(@"text encoding:%@",[self.iFlySpeechEvaluator parameterForKey:[IFlySpeechConstant TEXT_ENCODING]]);
+    NSLog(@"language:%@",[self.iFlySpeechEvaluator parameterForKey:[IFlySpeechConstant LANGUAGE]]);
+    
+    BOOL isUTF8=[[self.iFlySpeechEvaluator parameterForKey:[IFlySpeechConstant TEXT_ENCODING]] isEqualToString:@"utf-8"];
+    BOOL isZhCN=[[self.iFlySpeechEvaluator parameterForKey:[IFlySpeechConstant LANGUAGE]] isEqualToString:KCLanguageZHCN];
+    
+    BOOL needAddTextBom=isUTF8&&isZhCN;
+    NSMutableData *buffer = nil;
+    if(needAddTextBom){
+        if(self.textView.text && [self.textView.text length]>0){
+            Byte bomHeader[] = { 0xEF, 0xBB, 0xBF };
+            buffer = [NSMutableData dataWithBytes:bomHeader length:sizeof(bomHeader)];
+            [buffer appendData:[self.textView.text dataUsingEncoding:NSUTF8StringEncoding]];
+            NSLog(@" \ncn buffer length: %lu",(unsigned long)[buffer length]);
+        }
+    }else{
+        buffer= [NSMutableData dataWithData:[self.textView.text dataUsingEncoding:encoding]];
+        NSLog(@" \nen buffer length: %lu",(unsigned long)[buffer length]);
+    }
+    self.resultView.text =KCResultNotify2;
+    self.resultText=@"";
+    [self.iFlySpeechEvaluator startListening:buffer params:nil];
+    self.isSessionResultAppear=NO;
+    self.isSessionEnd=NO;
+    self.startBtn.enabled=NO;
+    
+    
+    
+}
+
+
+
+/*!
+ *  暂停录音
+ *
+ *  @param sender stopBtn
+ */
+- (void)onBtnStop:(id)sender {
+    
+    if(!self.isSessionResultAppear &&  !self.isSessionEnd){
+        self.resultView.text =KCResultNotify3;
+        self.resultText=@"";
+    }
+    
+    [self.iFlySpeechEvaluator stopListening];
+    [self.resultView resignFirstResponder];
+    [self.textView resignFirstResponder];
+    self.startBtn.enabled=YES;
+    [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_00.png"] forState:UIControlStateNormal];
+    
+    
+    
+}
+
+/*!
+ *  取消
+ *
+ *  @param sender cancelBtn
+ */
+- (void)onBtnCancel:(id)sender {
+    
+    [self.iFlySpeechEvaluator cancel];
+    [self.resultView resignFirstResponder];
+    [self.textView resignFirstResponder];
+    [self.popupView removeFromSuperview];
+    self.resultView.text =KCResultNotify1;
+    self.resultText=@"";
+    self.startBtn.enabled=YES;
+}
+
+
+/*!
+ *  开始解析
+ *
+ *  @param sender parseBtn
+ */
+- (void)onBtnParse:(id)sender {
+    
+    ISEResultXmlParser* parser=[[ISEResultXmlParser alloc] init];
+    parser.delegate = self;
+    [parser parserXml:self.resultText];
+    
+}
+
+
+#pragma mark - ISESettingDelegate
+
+/*!
+ *  设置参数改变
+ *
+ *  @param params 参数
+ */
+- (void)onParamsChanged:(ISEParams *)params {
+    self.iseParams=params;
+    [self performSelectorOnMainThread:@selector(reloadCategoryText) withObject:nil waitUntilDone:NO];
+}
+
+#pragma mark - IFlySpeechEvaluatorDelegate
+/*!
+ *  音量和数据回调
+ *
+ *  @param volume 音量
+ *  @param buffer 音频数据
+ */
+- (void)onVolumeChanged:(int)volume buffer:(NSData *)buffer {
+    //    NSLog(@"volume:%d",volume);
+    [self.popupView setText:[NSString stringWithFormat:@"音量：%d",volume]];
+    [self.view addSubview:self.popupView];
+    //    double volume2 = (double) volume;
+    
+    if (0 < volume  && volume<= 3) {
+        [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_01.png"] forState:UIControlStateNormal];
+    }
+    else  if (3<volume && volume <=6) {
+        [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_02.png"] forState:UIControlStateNormal];
+    }
+    else  if (6<volume&&volume <=9) {
+        [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_03.png"] forState:UIControlStateNormal];
+    }
+    else  if (9 <volume&&volume <=12) {
+        [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_04.png"] forState:UIControlStateNormal];
+    }
+    else  if (12<volume&&volume <=15) {
+        [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_05.png"] forState:UIControlStateNormal];
+    }
+    else  if (15<volume&& volume<=18) {
+        [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_06.png"] forState:UIControlStateNormal];
+    }
+    else  if (18<volume&& volume<=21) {
+        [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_07.png"] forState:UIControlStateNormal];
+    }
+    else  if (21<volume&& volume<=24) {
+        [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_08.png"] forState:UIControlStateNormal];
+    }
+    else  if (24<volume&& volume<=27) {
+        [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_09.png"] forState:UIControlStateNormal];
+    }
+    else   {
+        [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_00.png"] forState:UIControlStateNormal];
+    }
+    
+}
+
+/*!
+ *  开始录音回调
+ *  当调用了`startListening`函数之后，如果没有发生错误则会回调此函数。如果发生错误则回调onError:函数
+ */
+- (void)onBeginOfSpeech {
+    
+}
+
+/*!
+ *  停止录音回调
+ *    当调用了`stopListening`函数或者引擎内部自动检测到断点，如果没有发生错误则回调此函数。
+ *  如果发生错误则回调onError:函数
+ */
+- (void)onEndOfSpeech {
+    
+}
+
+/*!
+ *  正在取消
+ */
+- (void)onCancel {
+    
+}
+
+/*!
+ *  评测结果回调
+ *    在进行语音评测过程中的任何时刻都有可能回调此函数，你可以根据errorCode进行相应的处理.
+ *  当errorCode没有错误时，表示此次会话正常结束，否则，表示此次会话有错误发生。特别的当调用
+ *  `cancel`函数时，引擎不会自动结束，需要等到回调此函数，才表示此次会话结束。在没有回调此函
+ *  数之前如果重新调用了`startListenging`函数则会报错误。
+ *
+ *  @param errorCode 错误描述类
+ */
+- (void)onError:(IFlySpeechError *)errorCode {
+    if(errorCode && errorCode.errorCode!=0){
+        [self.popupView setText:[NSString stringWithFormat:@"错误码：%d %@",[errorCode errorCode],[errorCode errorDesc]]];
+        [self.view addSubview:self.popupView];
+        
+    }
+    
+    [self performSelectorOnMainThread:@selector(resetBtnSatus:) withObject:errorCode waitUntilDone:NO];
+    
+}
+
+/*!
+ *  评测结果回调
+ *   在评测过程中可能会多次回调此函数，你最好不要在此回调函数中进行界面的更改等操作，只需要将回调的结果保存起来。
+ *
+ *  @param results -[out] 评测结果。
+ *  @param isLast  -[out] 是否最后一条结果
+ */
+- (void)onResults:(NSData *)results isLast:(BOOL)isLast{
+    if (results) {
+        NSString *showText = @"";
+        
+        const char* chResult=[results bytes];
+        
+        BOOL isUTF8=[[self.iFlySpeechEvaluator parameterForKey:[IFlySpeechConstant RESULT_ENCODING]]isEqualToString:@"utf-8"];
+        NSString* strResults=nil;
+        if(isUTF8){
+            strResults=[[NSString alloc] initWithBytes:chResult length:[results length] encoding:NSUTF8StringEncoding];
+        }else{
+            NSLog(@"result encoding: gb2312");
+            NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+            strResults=[[NSString alloc] initWithBytes:chResult length:[results length] encoding:encoding];
+        }
+        if(strResults){
+            showText = [showText stringByAppendingString:strResults];
+        }
+        self.result = [NSString stringWithString:showText];
+        
+        NSLog(self.result);
+        
+        
+        
+        
+        self.resultText=showText;
+        self.resultView.text = showText;
+        self.isSessionResultAppear=YES;
+        self.isSessionEnd=YES;
+        
+        
+        
+        
+        
+        if(isLast){
+            [self.popupView setText:@"评测结束"];
+            [self.view addSubview:self.popupView];
+        }
+        
+        ISEResultXmlParser* parser=[[ISEResultXmlParser alloc] init];
+        parser.delegate = self;
+        [parser parserXml:self.resultText];
+        
+        
+    }
+    else{
+        if(isLast){
+            [self.popupView setText:@"你好像没有说话哦"];
+            [self.view addSubview:self.popupView];
+        }
+        self.isSessionEnd=YES;
+    }
+    self.startBtn.enabled=YES;
+}
+
+#pragma mark - ISEResultXmlParserDelegate
+
+-(void)onISEResultXmlParser:(NSXMLParser *)parser Error:(NSError*)error{
+    
+}
+
+-(void)onISEResultXmlParserResult:(ISEResult*)result{
+    self.resultView.text=[result toString];
+    NSLog([result toString]);
+}
 
 
 @end

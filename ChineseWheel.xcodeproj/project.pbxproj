@@ -41,7 +41,6 @@
 		4E0EA85B1ADD4835001673D4 /* 08.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA8561ADD4835001673D4 /* 08.gif */; };
 		4E0EA85C1ADD4835001673D4 /* 12.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA8571ADD4835001673D4 /* 12.gif */; };
 		4E0EA8661ADDA522001673D4 /* AudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EA8641ADDA522001673D4 /* AudioViewController.m */; };
-		4E0EA8671ADDA522001673D4 /* AudioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA8651ADDA522001673D4 /* AudioViewController.xib */; };
 		4E0EA86A1ADDA5BA001673D4 /* SvGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EA8691ADDA5BA001673D4 /* SvGifViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4E0EA86D1ADDE36A001673D4 /* ISEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EA86C1ADDE36A001673D4 /* ISEViewController.m */; };
 		4E0EA8701ADDE38C001673D4 /* ISESettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EA86F1ADDE38C001673D4 /* ISESettingViewController.m */; };
@@ -62,7 +61,6 @@
 		4E0EA8C91ADDEAAE001673D4 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0EA8C81ADDEAAE001673D4 /* libz.1.2.5.dylib */; };
 		4E0EA8CB1ADDEADE001673D4 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0EA8CA1ADDEADE001673D4 /* AddressBook.framework */; };
 		4E0EA8CD1ADDEAF8001673D4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0EA8CC1ADDEAF8001673D4 /* SystemConfiguration.framework */; };
-		4E0EA8D01ADDEB7D001673D4 /* ISEResultTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EA8CF1ADDEB7D001673D4 /* ISEResultTools.m */; };
 		4E0EA8E21ADDED92001673D4 /* SBJson4Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EA8D51ADDED92001673D4 /* SBJson4Parser.m */; };
 		4E0EA8E31ADDED92001673D4 /* SBJson4StreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EA8D71ADDED92001673D4 /* SBJson4StreamParser.m */; };
 		4E0EA8E41ADDED92001673D4 /* SBJson4StreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EA8D91ADDED92001673D4 /* SBJson4StreamParserState.m */; };
@@ -79,6 +77,8 @@
 		4E4001E51AD7EA84002917F4 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4001E41AD7EA84002917F4 /* CoreImage.framework */; };
 		4E4001E61AD7EAC8002917F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C24BF48154FA74300084C39 /* CoreGraphics.framework */; };
 		4E4001E81AD7EB52002917F4 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4001E71AD7EB52002917F4 /* ImageIO.framework */; };
+		4E4CC7271ADEE2190022004B /* ISEResultTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4CC7261ADEE2190022004B /* ISEResultTools.m */; };
+		4E4CC7291ADEE3890022004B /* AudioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E4CC7281ADEE3890022004B /* AudioViewController.xib */; };
 		4E8087341AD7DF47000767C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E8087331AD7DF47000767C5 /* Main.storyboard */; };
 		4E8087371AD7DF5F000767C5 /* HYScratchCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8087361AD7DF5E000767C5 /* HYScratchCardView.m */; };
 		4E80873A1AD7DF7A000767C5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E8087391AD7DF7A000767C5 /* Images.xcassets */; };
@@ -142,7 +142,6 @@
 		4E0EA8571ADD4835001673D4 /* 12.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 12.gif; sourceTree = "<group>"; };
 		4E0EA8631ADDA522001673D4 /* AudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioViewController.h; sourceTree = SOURCE_ROOT; };
 		4E0EA8641ADDA522001673D4 /* AudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioViewController.m; sourceTree = SOURCE_ROOT; };
-		4E0EA8651ADDA522001673D4 /* AudioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioViewController.xib; sourceTree = SOURCE_ROOT; };
 		4E0EA8681ADDA5BA001673D4 /* SvGifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvGifViewController.h; sourceTree = "<group>"; };
 		4E0EA8691ADDA5BA001673D4 /* SvGifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvGifViewController.m; sourceTree = "<group>"; };
 		4E0EA86B1ADDE36A001673D4 /* ISEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISEViewController.h; sourceTree = "<group>"; };
@@ -179,8 +178,6 @@
 		4E0EA8C81ADDEAAE001673D4 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		4E0EA8CA1ADDEADE001673D4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		4E0EA8CC1ADDEAF8001673D4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		4E0EA8CE1ADDEB7D001673D4 /* ISEResultTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISEResultTools.h; path = "../../../../_designproject/merge/Project/Wheel demo/ISEResultTools.h"; sourceTree = "<group>"; };
-		4E0EA8CF1ADDEB7D001673D4 /* ISEResultTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISEResultTools.m; path = "../../../../_designproject/merge/Project/Wheel demo/ISEResultTools.m"; sourceTree = "<group>"; };
 		4E0EA8D31ADDED92001673D4 /* SBJson4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4.h; sourceTree = "<group>"; };
 		4E0EA8D41ADDED92001673D4 /* SBJson4Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4Parser.h; sourceTree = "<group>"; };
 		4E0EA8D51ADDED92001673D4 /* SBJson4Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4Parser.m; sourceTree = "<group>"; };
@@ -210,6 +207,9 @@
 		4E0F411D1ADDF3000075A2DE /* ASRDialogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASRDialogViewController.m; sourceTree = "<group>"; };
 		4E4001E41AD7EA84002917F4 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		4E4001E71AD7EB52002917F4 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		4E4CC7251ADEE2190022004B /* ISEResultTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISEResultTools.h; sourceTree = "<group>"; };
+		4E4CC7261ADEE2190022004B /* ISEResultTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISEResultTools.m; sourceTree = "<group>"; };
+		4E4CC7281ADEE3890022004B /* AudioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioViewController.xib; sourceTree = "<group>"; };
 		4E8087331AD7DF47000767C5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		4E8087351AD7DF5E000767C5 /* HYScratchCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYScratchCardView.h; sourceTree = "<group>"; };
 		4E8087361AD7DF5E000767C5 /* HYScratchCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYScratchCardView.m; sourceTree = "<group>"; };
@@ -217,8 +217,8 @@
 		4E80873B1AD7DF7F000767C5 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = ../LaunchScreen.xib; sourceTree = "<group>"; };
 		4E8087621AD7E0E4000767C5 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		4E8087641AD7E37D000767C5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		4ECD38791ADD132C008F9DFA /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ../ViewController.h; sourceTree = "<group>"; };
-		4ECD387A1ADD132C008F9DFA /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ../ViewController.m; sourceTree = "<group>"; };
+		4ECD38791ADD132C008F9DFA /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4ECD387A1ADD132C008F9DFA /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		986A73E71AD6C9D50015C12A /* C1 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = C1; sourceTree = "<group>"; };
 		986A73E81AD6C9D50015C12A /* C2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = C2; sourceTree = "<group>"; };
 		986A73E91AD6C9D50015C12A /* C3 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = C3; sourceTree = "<group>"; };
@@ -292,11 +292,9 @@
 		3C24BF4A154FA74300084C39 /* ChineseWheel */ = {
 			isa = PBXGroup;
 			children = (
-				4ECD38791ADD132C008F9DFA /* ViewController.h */,
-				4ECD387A1ADD132C008F9DFA /* ViewController.m */,
-				4E0EA8521ADD199C001673D4 /* Wheel */,
+				4E0EA8521ADD199C001673D4 /* WheelPart */,
 				4E0EA8141ADD14BF001673D4 /* GIF */,
-				4ECD38771ADD1097008F9DFA /* Scatch */,
+				4ECD38771ADD1097008F9DFA /* Scratch */,
 				4E0EA85D1ADD9B8D001673D4 /* Audio */,
 				4E8087391AD7DF7A000767C5 /* Images.xcassets */,
 				4E0EA8501ADD1719001673D4 /* images */,
@@ -374,7 +372,7 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		4E0EA8521ADD199C001673D4 /* Wheel */ = {
+		4E0EA8521ADD199C001673D4 /* WheelPart */ = {
 			isa = PBXGroup;
 			children = (
 				4E0EA82A1ADD157E001673D4 /* horseBackground.png */,
@@ -385,7 +383,7 @@
 				3C24BF59154FA74300084C39 /* WheelDemoViewController.xib */,
 				3C24BF61154FA76700084C39 /* Wheel */,
 			);
-			name = Wheel;
+			name = WheelPart;
 			sourceTree = "<group>";
 		};
 		4E0EA85D1ADD9B8D001673D4 /* Audio */ = {
@@ -395,7 +393,7 @@
 				4E0EA8711ADDE392001673D4 /* Recognition */,
 				4E0EA8631ADDA522001673D4 /* AudioViewController.h */,
 				4E0EA8641ADDA522001673D4 /* AudioViewController.m */,
-				4E0EA8651ADDA522001673D4 /* AudioViewController.xib */,
+				4E4CC7281ADEE3890022004B /* AudioViewController.xib */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -403,6 +401,7 @@
 		4E0EA8711ADDE392001673D4 /* Recognition */ = {
 			isa = PBXGroup;
 			children = (
+				4E0EA8D21ADDED92001673D4 /* SBJson */,
 				4E0EA86B1ADDE36A001673D4 /* ISEViewController.h */,
 				4E0EA86C1ADDE36A001673D4 /* ISEViewController.m */,
 				4E0EA8C21ADDE8CE001673D4 /* ISEParams.h */,
@@ -421,8 +420,8 @@
 		4E0EA8811ADDE60D001673D4 /* Result */ = {
 			isa = PBXGroup;
 			children = (
-				4E0EA8CE1ADDEB7D001673D4 /* ISEResultTools.h */,
-				4E0EA8CF1ADDEB7D001673D4 /* ISEResultTools.m */,
+				4E4CC7251ADEE2190022004B /* ISEResultTools.h */,
+				4E4CC7261ADEE2190022004B /* ISEResultTools.m */,
 				4E0EA8BF1ADDE8B4001673D4 /* ISEResultReadSentence.h */,
 				4E0EA8C01ADDE8B4001673D4 /* ISEResultReadSentence.m */,
 				4E0EA8BC1ADDE899001673D4 /* ISEResultReadWord.h */,
@@ -471,7 +470,6 @@
 		4E0F410C1ADDEF9B0075A2DE /* reco */ = {
 			isa = PBXGroup;
 			children = (
-				4E0EA8D21ADDED92001673D4 /* SBJson */,
 				4E0F411C1ADDF3000075A2DE /* ASRDialogViewController.h */,
 				4E0F411D1ADDF3000075A2DE /* ASRDialogViewController.m */,
 				4E0EA8801ADDE576001673D4 /* ViewUIPrefix.h */,
@@ -498,14 +496,16 @@
 			name = Interface;
 			sourceTree = "<group>";
 		};
-		4ECD38771ADD1097008F9DFA /* Scatch */ = {
+		4ECD38771ADD1097008F9DFA /* Scratch */ = {
 			isa = PBXGroup;
 			children = (
+				4ECD38791ADD132C008F9DFA /* ViewController.h */,
+				4ECD387A1ADD132C008F9DFA /* ViewController.m */,
 				4E0EA81C1ADD1566001673D4 /* InfoPlist.strings */,
 				4E8087351AD7DF5E000767C5 /* HYScratchCardView.h */,
 				4E8087361AD7DF5E000767C5 /* HYScratchCardView.m */,
 			);
-			name = Scatch;
+			name = Scratch;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -576,7 +576,7 @@
 				4E80873A1AD7DF7A000767C5 /* Images.xcassets in Resources */,
 				4E0EA82F1ADD157E001673D4 /* horseScatched.png in Resources */,
 				4E0EA8271ADD1576001673D4 /* 轮1.png in Resources */,
-				4E0EA8671ADDA522001673D4 /* AudioViewController.xib in Resources */,
+				4E4CC7291ADEE3890022004B /* AudioViewController.xib in Resources */,
 				4E8087341AD7DF47000767C5 /* Main.storyboard in Resources */,
 				986A73EE1AD6C9D50015C12A /* C4 in Resources */,
 				3C24BF4F154FA74300084C39 /* InfoPlist.strings in Resources */,
@@ -628,7 +628,6 @@
 				4E0F41121ADDF01E0075A2DE /* ISRViewController.m in Sources */,
 				4E0EA8491ADD1618001673D4 /* CDCircleGestureRecognizer.m in Sources */,
 				4ECD387B1ADD132C008F9DFA /* ViewController.m in Sources */,
-				4E0EA8D01ADDEB7D001673D4 /* ISEResultTools.m in Sources */,
 				4E0EA84F1ADD16C1001673D4 /* main.m in Sources */,
 				4E0EA84C1ADD1618001673D4 /* CDIconView.m in Sources */,
 				4E0EA8E41ADDED92001673D4 /* SBJson4StreamParserState.m in Sources */,
@@ -637,6 +636,7 @@
 				4E0EA87F1ADDE4A6001673D4 /* ISEResultXmlParser.m in Sources */,
 				4E0EA8B21ADDE799001673D4 /* ISEResultSentence.m in Sources */,
 				4E0EA84A1ADD1618001673D4 /* CDCircleOverlayView.m in Sources */,
+				4E4CC7271ADEE2190022004B /* ISEResultTools.m in Sources */,
 				4E0F41181ADDF09F0075A2DE /* UIPlaceHolderTextView.m in Sources */,
 				4E0EA8E31ADDED92001673D4 /* SBJson4StreamParser.m in Sources */,
 				4E0EA8661ADDA522001673D4 /* AudioViewController.m in Sources */,

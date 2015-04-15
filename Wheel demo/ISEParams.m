@@ -56,39 +56,39 @@ NSString* const KCTimeout=@"timeout";
 
 - (NSString *)toString {
     
-	NSString *strIseParams = [[NSString alloc] init] ;
+    NSString *strIseParams = [[NSString alloc] init] ;
     
-	if (self.language && [self.language length] > 0) {
-		strIseParams = [strIseParams stringByAppendingFormat:@",%@=%@", [IFlySpeechConstant LANGUAGE], self.language];
-	}
-
-	if (self.category && [self.category length] > 0) {
-		strIseParams = [strIseParams stringByAppendingFormat:@",%@=%@", [IFlySpeechConstant ISE_CATEGORY], self.category];
-	}
-	if (self.rstLevel && [self.rstLevel length] > 0) {
-		strIseParams = [strIseParams stringByAppendingFormat:@",%@=%@", [IFlySpeechConstant ISE_RESULT_LEVEL], self.rstLevel];
-	}
-
-	if (self.bos && [self.bos length] > 0) {
-		strIseParams = [strIseParams stringByAppendingFormat:@",%@=%@", [IFlySpeechConstant VAD_BOS], self.bos];
-	}
-
-	if (self.eos && [self.eos length] > 0) {
-		strIseParams = [strIseParams stringByAppendingFormat:@",%@=%@", [IFlySpeechConstant VAD_EOS], self.eos];
-	}
-
-	if (self.timeout && [self.timeout length] > 0) {
-		strIseParams = [strIseParams stringByAppendingFormat:@",%@=%@", [IFlySpeechConstant SPEECH_TIMEOUT], self.timeout];
-	}
-
-	return strIseParams;
+    if (self.language && [self.language length] > 0) {
+        strIseParams = [strIseParams stringByAppendingFormat:@",%@=%@", [IFlySpeechConstant LANGUAGE], self.language];
+    }
+    
+    if (self.category && [self.category length] > 0) {
+        strIseParams = [strIseParams stringByAppendingFormat:@",%@=%@", [IFlySpeechConstant ISE_CATEGORY], self.category];
+    }
+    if (self.rstLevel && [self.rstLevel length] > 0) {
+        strIseParams = [strIseParams stringByAppendingFormat:@",%@=%@", [IFlySpeechConstant ISE_RESULT_LEVEL], self.rstLevel];
+    }
+    
+    if (self.bos && [self.bos length] > 0) {
+        strIseParams = [strIseParams stringByAppendingFormat:@",%@=%@", [IFlySpeechConstant VAD_BOS], self.bos];
+    }
+    
+    if (self.eos && [self.eos length] > 0) {
+        strIseParams = [strIseParams stringByAppendingFormat:@",%@=%@", [IFlySpeechConstant VAD_EOS], self.eos];
+    }
+    
+    if (self.timeout && [self.timeout length] > 0) {
+        strIseParams = [strIseParams stringByAppendingFormat:@",%@=%@", [IFlySpeechConstant SPEECH_TIMEOUT], self.timeout];
+    }
+    
+    return strIseParams;
 }
 
 - (void)setDefaultParams{
     
     self.language=KCLanguageZHCN;
     self.languageShow=KCLanguageShowZHCN;
-    self.category=KCCategorySentence;
+    self.category=KCCategorySyllable ;
     self.categoryShow=KCCategoryShowSentence;
     self.rstLevel=KCRstLevelComplete;
     self.bos=KCBOSDefault;
@@ -96,7 +96,7 @@ NSString* const KCTimeout=@"timeout";
     self.timeout=KCTimeoutDefault;
 }
 
-#pragma mark - consts for key stored 
+#pragma mark - consts for key stored
 
 - (void)toUserDefaults{
     NSMutableDictionary* paramsDic=[NSMutableDictionary dictionaryWithCapacity:8];
@@ -108,22 +108,22 @@ NSString* const KCTimeout=@"timeout";
             [paramsDic setObject:self.languageShow forKey:KCLanguageShow];
         }
         if(self.category){
-             [paramsDic setObject:self.category forKey:KCCategory];
+            [paramsDic setObject:self.category forKey:KCCategory];
         }
         if(self.categoryShow){
-             [paramsDic setObject:self.categoryShow forKey:KCCategoryShow];
+            [paramsDic setObject:self.categoryShow forKey:KCCategoryShow];
         }
         if(self.rstLevel){
-             [paramsDic setObject:self.rstLevel forKey:KCRstLevel];
+            [paramsDic setObject:self.rstLevel forKey:KCRstLevel];
         }
         if(self.bos){
-             [paramsDic setObject:self.bos forKey:KCBOS];
+            [paramsDic setObject:self.bos forKey:KCBOS];
         }
         if(self.eos){
-             [paramsDic setObject:self.eos forKey:KCEOS];
+            [paramsDic setObject:self.eos forKey:KCEOS];
         }
         if(self.timeout){
-             [paramsDic setObject:self.timeout forKey:KCTimeout];
+            [paramsDic setObject:self.timeout forKey:KCTimeout];
         }
     }
     [[NSUserDefaults standardUserDefaults] setObject:paramsDic forKey:KCIseDictionaryKey];

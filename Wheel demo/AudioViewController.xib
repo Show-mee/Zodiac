@@ -7,8 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AudioViewController">
             <connections>
-                <outlet property="background" destination="gJd-M2-DMV" id="QgM-Ea-pzO"/>
-                <outlet property="imageView" destination="1TV-dO-T7o" id="hXt-n4-gnw"/>
+                <outlet property="backgroundView" destination="LCX-ow-ULp" id="sqV-OQ-IRg"/>
+                <outlet property="recordBtn" destination="ORP-oS-rxn" id="5Mo-Sm-pms"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,46 +17,43 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gJd-M2-DMV">
-                    <rect key="frame" x="-6" y="0.0" width="326" height="568"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="horseBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="LCX-ow-ULp">
+                    <rect key="frame" x="-3" y="0.0" width="326" height="568"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9SY-IP-qgB">
-                    <rect key="frame" x="0.0" y="518" width="60" height="50"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSF-IL-Nsi">
+                    <rect key="frame" x="260" y="518" width="60" height="50"/>
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="jumpBack:" destination="-1" eventType="touchUpInside" id="wI4-Ms-F7l"/>
-                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMR-A0-2y5">
-                    <rect key="frame" x="260" y="517" width="60" height="50"/>
-                    <state key="normal">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="jumpToWheel:" destination="-1" eventType="touchUpInside" id="8W7-G6-W5W"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myB-MU-PlS">
-                    <rect key="frame" x="80" y="517" width="43" height="56"/>
-                    <state key="normal" image="standard">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1TV-dO-T7o">
-                    <rect key="frame" x="196" y="524" width="28" height="37"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORP-oS-rxn">
+                    <rect key="frame" x="109" y="523" width="28" height="37"/>
                     <state key="normal" image="play">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="recordBtnDown:" destination="-1" eventType="touchUpInside" id="4Pg-UC-beF"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnR-eA-PBL">
+                    <rect key="frame" x="0.0" y="512" width="60" height="50"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONu-rh-v3E">
+                    <rect key="frame" x="196" y="514" width="43" height="56"/>
+                    <state key="normal" image="standard">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="184" y="439"/>
         </view>
     </objects>
     <resources>
+        <image name="horseBackground.png" width="640" height="1136"/>
         <image name="play" width="28" height="37"/>
         <image name="standard" width="28" height="37"/>
     </resources>
