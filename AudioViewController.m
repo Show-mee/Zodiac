@@ -68,6 +68,8 @@ NSString* const KCResultNotify3=@"停止评测，结果等待中...";
 @property (strong, nonatomic) IBOutlet UIButton *recordBtn;
 
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundView;
+@property (retain, nonatomic) AVAudioPlayer *avPlay;
+@property(strong, nonatomic) NSURL* myurl;
 
 
 @end
@@ -81,7 +83,19 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
     return NSLocalizedStringFromTable(key, @"eva/eva", comment);
 }
 
-#pragma mark -
+
+
+
+
+- (IBAction)playSound:(id)sender {
+    if (self.avPlay.playing) {
+        [self.avPlay stop];
+        return;
+    }
+    AVAudioPlayer *player = [[AVAudioPlayer alloc]initWithContentsOfURL:self.myurl error:nil];
+    self.avPlay = player;
+    [self.avPlay play];
+}
 
 - (instancetype)init {
     self = [super init];
@@ -97,6 +111,7 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
     _isSessionResultAppear=YES;
     _isSessionEnd=YES;
     _isValidInput=YES;
+    
     
     return self;
 }
@@ -141,8 +156,17 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    zodiacName = @"1";
+    
+    //语音
+    NSBundle* bundle=[NSBundle mainBundle];
+    NSString* urlString=[bundle pathForResource:zodiacName ofType:@"mp3"];
+    //--初始化url
+    self.myurl=[[NSURL alloc]initFileURLWithPath:urlString];
+    NSLog(@"!!!here is %@", self.myurl);
+    
     NSString * backName = [zodiacName stringByAppendingString:@"_background.png"];
-    [self.backgroundView  setImage:[UIImage imageNamed:zodiacName]];
+    [self.backgroundView  setImage:[UIImage imageNamed:backName]];
     int textViewHeight = self.view.frame.size.height - _DEMO_UI_BUTTON_HEIGHT * 2 - _DEMO_UI_MARGIN * 10 - _DEMO_UI_NAVIGATIONBAR_HEIGHT;
     
     //textView
@@ -458,31 +482,31 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
     [self.view addSubview:self.popupView];
     //    double volume2 = (double) volume;
     
-    if (0 < volume  && volume<= 3) {
+    if (0 < volume && volume<= 3) {
         [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_01.png"] forState:UIControlStateNormal];
     }
     else  if (3<volume && volume <=6) {
         [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_02.png"] forState:UIControlStateNormal];
     }
-    else  if (6<volume&&volume <=9) {
+    else  if (6<volume && volume <=9) {
         [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_03.png"] forState:UIControlStateNormal];
     }
-    else  if (9 <volume&&volume <=12) {
+    else  if (9 <volume && volume <=12) {
         [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_04.png"] forState:UIControlStateNormal];
     }
-    else  if (12<volume&&volume <=15) {
+    else  if (12<volume && volume <=15) {
         [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_05.png"] forState:UIControlStateNormal];
     }
-    else  if (15<volume&& volume<=18) {
+    else  if (15<volume && volume<=18) {
         [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_06.png"] forState:UIControlStateNormal];
     }
-    else  if (18<volume&& volume<=21) {
+    else  if (18<volume && volume<=21) {
         [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_07.png"] forState:UIControlStateNormal];
     }
-    else  if (21<volume&& volume<=24) {
+    else  if (21<volume && volume<=24) {
         [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_08.png"] forState:UIControlStateNormal];
     }
-    else  if (24<volume&& volume<=27) {
+    else  if (24<volume && volume<=30) {
         [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_09.png"] forState:UIControlStateNormal];
     }
     else   {

@@ -17,8 +17,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="horseBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="LCX-ow-ULp">
-                    <rect key="frame" x="-3" y="0.0" width="326" height="568"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LCX-ow-ULp">
+                    <rect key="frame" x="0.0" y="0.0" width="326" height="568"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSF-IL-Nsi">
                     <rect key="frame" x="260" y="518" width="60" height="50"/>
@@ -27,7 +27,7 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORP-oS-rxn">
-                    <rect key="frame" x="109" y="523" width="28" height="37"/>
+                    <rect key="frame" x="95" y="524" width="28" height="37"/>
                     <state key="normal" image="play">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -42,10 +42,13 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONu-rh-v3E">
-                    <rect key="frame" x="196" y="514" width="43" height="56"/>
+                    <rect key="frame" x="190" y="524" width="28" height="37"/>
                     <state key="normal" image="standard">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="playSound:" destination="-1" eventType="touchUpInside" id="oM5-8O-hbq"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -53,7 +56,6 @@
         </view>
     </objects>
     <resources>
-        <image name="horseBackground.png" width="640" height="1136"/>
         <image name="play" width="28" height="37"/>
         <image name="standard" width="28" height="37"/>
     </resources>
