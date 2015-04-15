@@ -8,7 +8,7 @@
         <!--Wheel Demo View Controller-->
         <scene sceneID="Ly9-AT-ksM">
             <objects>
-                <viewController storyboardIdentifier="FirstView" id="jDb-zB-BkE" customClass="WheelDemoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WheelView" id="jDb-zB-BkE" customClass="WheelDemoViewController" sceneMemberID="viewController">
                     <connections>
                         <segue destination="69i-mL-WPh" kind="modal" identifier="wheelToScatch" id="1oO-tC-KBA"/>
                     </connections>
@@ -29,6 +29,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3OL-hK-X7c">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZA-Ty-OAa">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
@@ -49,6 +52,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="bqP-dP-Qe3"/>
+                    <connections>
+                        <outlet property="backgroundImage" destination="3OL-hK-X7c" id="IKV-4U-Qxa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NuF-hc-6fD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -57,7 +63,7 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="ScatchView" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScratchView" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -66,21 +72,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="horseBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="T8b-zn-cRG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="573"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgq-ZT-n3m">
-                                <rect key="frame" x="53" y="526" width="77" height="36"/>
-                                <state key="normal" title="Record">
-                                    <color key="titleColor" red="0.27450980392156865" green="0.070588235294117646" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v7a-Sc-Zwt">
-                                <rect key="frame" x="123" y="524" width="34" height="36"/>
-                            </imageView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="ONl-20-vvy">
+                                <rect key="frame" x="0.0" y="520" width="320" height="44"/>
+                                <color key="barTintColor" red="0.90980392160000001" green="0.91372549020000005" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem id="2a6-Gw-tgI">
+                                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="rewind" id="VUG-3b-fE9">
+                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <segue destination="69i-mL-WPh" kind="modal" id="b7s-S2-vYJ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="fastForward" id="JPP-VY-hHf">
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <segue destination="Oln-rE-YnB" kind="modal" id="iNz-BX-jZd"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6A-tQ-Dyf">
-                                <rect key="frame" x="16" y="530" width="46" height="30"/>
+                                <rect key="frame" x="16" y="466" width="46" height="30"/>
                                 <state key="normal" title="Tip">
                                     <color key="titleColor" red="0.27450980390000002" green="0.070588235289999995" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -90,7 +103,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dc8-tF-yJ6" userLabel="Again">
-                                <rect key="frame" x="251" y="528" width="44" height="30"/>
+                                <rect key="frame" x="260" y="466" width="44" height="30"/>
                                 <state key="normal" title="Again">
                                     <color key="titleColor" red="0.27450980390000002" green="0.070588235289999995" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -99,29 +112,12 @@
                                     <action selector="resetButtonClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tds-vE-Dli"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1LJ-z3-fMv">
-                                <rect key="frame" x="205" y="527" width="34" height="30"/>
-                                <state key="normal" title="jump">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Oln-rE-YnB" kind="modal" id="jWG-go-yq0"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWb-yE-s52">
-                                <rect key="frame" x="156" y="521" width="41" height="42"/>
-                                <state key="normal" title="Play">
-                                    <color key="titleColor" red="0.27450980390000002" green="0.070588235289999995" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="horseBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="T8b-zn-cRG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="573"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <outlet property="btn" destination="Pgq-ZT-n3m" id="FK1-Sz-fjk"/>
-                        <outlet property="imageView" destination="v7a-Sc-Zwt" id="xM7-jV-UuT"/>
-                        <outlet property="playBtn" destination="aWb-yE-s52" id="FeK-Zg-I7U"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -130,7 +126,7 @@
         <!--Audio View Controller-->
         <scene sceneID="IQx-SU-zvc">
             <objects>
-                <viewController id="Oln-rE-YnB" customClass="AudioViewController" sceneMemberID="viewController"/>
+                <viewController storyboardIdentifier="AudioView" id="Oln-rE-YnB" customClass="AudioViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hjn-1Z-ITC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="644" y="475"/>
@@ -144,4 +140,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="b7s-S2-vYJ"/>
+    </inferredMetricsTieBreakers>
 </document>

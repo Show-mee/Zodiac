@@ -2,6 +2,7 @@
 #import "CDCircleOverlayView.h"
 
 @interface WheelDemoViewController ()
+@property (strong, nonatomic) IBOutlet UIImageView *background;
 
 @end
 
@@ -40,6 +41,7 @@
 - (void) onBtnWheel:(id) sender{
     
     //    [self.view setHidden:YES];
+    [self.background setImage: [UIImage imageNamed: @"bgBlack.png"]];
     UIView *RemoveCircleGo = [self.view viewWithTag:17];
     UIView *RemoveOverlayGo = [self.view viewWithTag:18];
     [RemoveCircleGo removeFromSuperview];
@@ -95,7 +97,7 @@
 - (void) onBtnStart:(id) sender
 {
     UIStoryboard *secondStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    zodiacName = @"07";
+    zodiacName = @"7";
     [self presentModalViewController:[secondStoryboard instantiateViewControllerWithIdentifier:@"GIFoverview"] animated:YES];
 }
 

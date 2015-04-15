@@ -79,6 +79,16 @@ NSString* const KCResultNotify3=@"停止评测，结果等待中...";
 
 
 @implementation AudioViewController
+//control
+
+- (IBAction)reviewBtnDown:(id)sender {
+        UIStoryboard *secondStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        [self presentModalViewController:[secondStoryboard instantiateViewControllerWithIdentifier:@"ScratchView"] animated:YES ];
+}
+- (IBAction)backBtnDown:(id)sender {
+    UIStoryboard *secondStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    [self presentModalViewController:[secondStoryboard instantiateViewControllerWithIdentifier:@"WheelView"] animated:YES ];
+}
 
 static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
     return NSLocalizedStringFromTable(key, @"eva/eva", comment);
@@ -156,7 +166,6 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    zodiacName = @"1";
     
     //语音
     NSBundle* bundle=[NSBundle mainBundle];
@@ -613,18 +622,11 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
         
         NSLog(self.result);
         
-        
-        
-        
         self.resultText=showText;
         self.resultView.text = showText;
         self.isSessionResultAppear=YES;
         self.isSessionEnd=YES;
-        
-        
-        
-        
-        
+ 
         if(isLast){
             [self.popupView setText:@"评测结束"];
             [self.view addSubview:self.popupView];
