@@ -37,7 +37,7 @@ extern NSString * zodiacName;
         fileUrl = [[NSBundle mainBundle] URLForResource:@"07" withExtension:@"gif"];
     }
     
-//                        NSURL *fileUrl = [[NSBundle mainBundle] URLForResource:@"Horse2" withExtension:@"gif"];
+
     _gifView = [[SvGifView alloc] initWithCenter:CGPointMake(self.view.bounds.size.width / 2, 130) fileURL:fileUrl];
     _gifView.backgroundColor = [UIColor clearColor];
     _gifView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;

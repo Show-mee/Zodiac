@@ -15,6 +15,7 @@
 		3C24BF76154FA80200084C39 /* iPod Click.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 3C24BF75154FA80200084C39 /* iPod Click.aiff */; };
 		3C24BF7D154FA86000084C39 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C24BF7C154FA86000084C39 /* AudioToolbox.framework */; };
 		3C24BF7F154FA86D00084C39 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C24BF7E154FA86D00084C39 /* QuartzCore.framework */; };
+		4E07F1091ADF17A500FCFEDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E07F1081ADF17A500FCFEDE /* Main.storyboard */; };
 		4E0EA8111ADD14A9001673D4 /* SvGifView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EA80E1ADD14A9001673D4 /* SvGifView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4E0EA8161ADD151B001673D4 /* Horse2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA8151ADD151B001673D4 /* Horse2.gif */; };
 		4E0EA81D1ADD1566001673D4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EA81C1ADD1566001673D4 /* InfoPlist.strings */; };
@@ -73,7 +74,6 @@
 		4E4001E81AD7EB52002917F4 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4001E71AD7EB52002917F4 /* ImageIO.framework */; };
 		4E4CC7271ADEE2190022004B /* ISEResultTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4CC7261ADEE2190022004B /* ISEResultTools.m */; };
 		4E4CC7291ADEE3890022004B /* AudioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E4CC7281ADEE3890022004B /* AudioViewController.xib */; };
-		4E8087341AD7DF47000767C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E8087331AD7DF47000767C5 /* Main.storyboard */; };
 		4E8087371AD7DF5F000767C5 /* HYScratchCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8087361AD7DF5E000767C5 /* HYScratchCardView.m */; };
 		4E80873A1AD7DF7A000767C5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E8087391AD7DF7A000767C5 /* Images.xcassets */; };
 		4E80873C1AD7DF7F000767C5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E80873B1AD7DF7F000767C5 /* LaunchScreen.xib */; };
@@ -112,6 +112,7 @@
 		3C24BF75154FA80200084C39 /* iPod Click.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "iPod Click.aiff"; sourceTree = "<group>"; };
 		3C24BF7C154FA86000084C39 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3C24BF7E154FA86D00084C39 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4E07F1081ADF17A500FCFEDE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4E0EA80D1ADD14A9001673D4 /* SvGifView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvGifView.h; sourceTree = "<group>"; };
 		4E0EA80E1ADD14A9001673D4 /* SvGifView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvGifView.m; sourceTree = "<group>"; };
 		4E0EA8151ADD151B001673D4 /* Horse2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Horse2.gif; sourceTree = "<group>"; };
@@ -209,7 +210,6 @@
 		4E4CC7251ADEE2190022004B /* ISEResultTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISEResultTools.h; sourceTree = "<group>"; };
 		4E4CC7261ADEE2190022004B /* ISEResultTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISEResultTools.m; sourceTree = "<group>"; };
 		4E4CC7281ADEE3890022004B /* AudioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioViewController.xib; sourceTree = "<group>"; };
-		4E8087331AD7DF47000767C5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		4E8087351AD7DF5E000767C5 /* HYScratchCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYScratchCardView.h; sourceTree = "<group>"; };
 		4E8087361AD7DF5E000767C5 /* HYScratchCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYScratchCardView.m; sourceTree = "<group>"; };
 		4E8087391AD7DF7A000767C5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
@@ -498,7 +498,7 @@
 		4E0F411F1ADE61360075A2DE /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				4E8087331AD7DF47000767C5 /* Main.storyboard */,
+				4E07F1081ADF17A500FCFEDE /* Main.storyboard */,
 				4E80873B1AD7DF7F000767C5 /* LaunchScreen.xib */,
 			);
 			name = Interface;
@@ -593,7 +593,6 @@
 				4EC5BABF1ADEF624002A635F /* 3.mp3 in Resources */,
 				4EC5BAC81ADEF624002A635F /* 12.mp3 in Resources */,
 				4E4CC7291ADEE3890022004B /* AudioViewController.xib in Resources */,
-				4E8087341AD7DF47000767C5 /* Main.storyboard in Resources */,
 				986A73EE1AD6C9D50015C12A /* C4 in Resources */,
 				3C24BF4F154FA74300084C39 /* InfoPlist.strings in Resources */,
 				4E0EA8161ADD151B001673D4 /* Horse2.gif in Resources */,
@@ -607,6 +606,7 @@
 				4E0EA8591ADD4835001673D4 /* 02.gif in Resources */,
 				4E0EA85B1ADD4835001673D4 /* 08.gif in Resources */,
 				986A73EB1AD6C9D50015C12A /* C1 in Resources */,
+				4E07F1091ADF17A500FCFEDE /* Main.storyboard in Resources */,
 				4E0EA82D1ADD157E001673D4 /* horseBackground.png in Resources */,
 				4E0EA85C1ADD4835001673D4 /* 12.gif in Resources */,
 				4E80873C1AD7DF7F000767C5 /* LaunchScreen.xib in Resources */,

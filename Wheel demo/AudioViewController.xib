@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AudioViewController">
             <connections>
-                <outlet property="background" destination="LCX-ow-ULp" id="Hp3-lG-yYL"/>
                 <outlet property="backgroundView" destination="LCX-ow-ULp" id="sqV-OQ-IRg"/>
                 <outlet property="recordBtn" destination="ORP-oS-rxn" id="5Mo-Sm-pms"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
