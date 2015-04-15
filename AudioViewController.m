@@ -29,7 +29,6 @@ NSString* const KCIseStopBtnTitle=@"停止评测";
 NSString* const KCIseParseBtnTitle=@"结果解析";
 NSString* const KCIseCancelBtnTitle=@"取消评测";
 
-NSString* const KCTextCNSyllable=@"马";
 NSString* const KCTextCNWord=@"text_cn_word";
 NSString* const KCTextCNSentence=@"text_cn_sentence";
 NSString* const KCTextENWord=@"text_en_word";
@@ -70,6 +69,8 @@ NSString* const KCResultNotify3=@"停止评测，结果等待中...";
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundView;
 @property (retain, nonatomic) AVAudioPlayer *avPlay;
 @property(strong, nonatomic) NSURL* myurl;
+@property(strong, nonatomic) NSString* KCTextCNSyllable;
+
 
 
 @end
@@ -81,10 +82,8 @@ NSString* const KCResultNotify3=@"停止评测，结果等待中...";
 
 static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
     return NSLocalizedStringFromTable(key, @"eva/eva", comment);
+
 }
-
-
-
 
 
 - (IBAction)playSound:(id)sender {
@@ -153,6 +152,7 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
     [super viewWillDisappear:animated];
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -163,7 +163,32 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
     NSString* urlString=[bundle pathForResource:zodiacName ofType:@"mp3"];
     //--初始化url
     self.myurl=[[NSURL alloc]initFileURLWithPath:urlString];
-    NSLog(@"!!!here is %@", self.myurl);
+    //--初始化 语音的字
+    if([zodiacName isEqualToString:@"1"]){
+        self.KCTextCNSyllable = @"鼠";
+    }else if([zodiacName isEqualToString:@"2"]){
+        self.KCTextCNSyllable = @"牛";
+    }else if([zodiacName isEqualToString:@"3"]){
+        self.KCTextCNSyllable = @"虎";
+    }else if([zodiacName isEqualToString:@"4"]){
+        self.KCTextCNSyllable = @"兔";
+    }else if([zodiacName isEqualToString:@"5"]){
+        self.KCTextCNSyllable = @"龙";
+    }else if([zodiacName isEqualToString:@"6"]){
+        self.KCTextCNSyllable = @"蛇";
+    }else if([zodiacName isEqualToString:@"7"]){
+        self.KCTextCNSyllable = @"马";
+    }else if([zodiacName isEqualToString:@"8"]){
+        self.KCTextCNSyllable = @"羊";
+    }else if([zodiacName isEqualToString:@"9"]){
+        self.KCTextCNSyllable = @"猴";
+    }else if([zodiacName isEqualToString:@"10"]){
+        self.KCTextCNSyllable = @"鸡";
+    }else if([zodiacName isEqualToString:@"11"]){
+        self.KCTextCNSyllable = @"狗";
+    }else if([zodiacName isEqualToString:@"12"]){
+        self.KCTextCNSyllable = @"猪";
+    }
     
     NSString * backName = [zodiacName stringByAppendingString:@"_background.png"];
     [self.backgroundView  setImage:[UIImage imageNamed:backName]];
@@ -226,7 +251,7 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
     
     
     self.startBtn = startBtn;
-    [self.view addSubview:startBtn];
+//    [self.view addSubview:startBtn];
     
     
     [self.recordBtn addTarget:self action:@selector(onBtnStart:) forControlEvents:UIControlEventTouchDown];
@@ -242,7 +267,7 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
     
     [parseBtn addTarget:self action:@selector(onBtnParse:) forControlEvents:UIControlEventTouchUpInside];
     self.parseBtn = parseBtn;
-    [self.view addSubview:parseBtn];
+//    [self.view addSubview:parseBtn];
     
     //停止
     UIButton *stopBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -253,7 +278,7 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
                                _DEMO_UI_BUTTON_HEIGHT);
     [stopBtn addTarget:self action:@selector(onBtnStop:) forControlEvents:UIControlEventTouchUpInside];
     self.stopBtn = stopBtn;
-    [self.view addSubview:stopBtn];
+//    [self.view addSubview:stopBtn];
     
     
     //取消
@@ -265,7 +290,7 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
                                  stopBtn.frame.size.height);
     [cancelBtn addTarget:self action:@selector(onBtnCancel:) forControlEvents:UIControlEventTouchUpInside];
     self.cancelBtn = cancelBtn;
-    [self.view addSubview:cancelBtn];
+//    [self.view addSubview:cancelBtn];
     
     //popupView
     self.popupView = [[PopupView alloc]initWithFrame:CGRectMake(100, 300, 0, 0)];
@@ -301,7 +326,7 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
     
     if ([self.iseParams.language isEqualToString:KCLanguageZHCN]) {
         if ([self.iseParams.category isEqualToString:KCCategorySyllable]) {
-            self.textView.text = LocalizedEvaString(KCTextCNSyllable, nil);
+            self.textView.text = LocalizedEvaString(self.KCTextCNSyllable, nil);
         }
         else if ([self.iseParams.category isEqualToString:KCCategoryWord]) {
             self.textView.text = LocalizedEvaString(KCTextCNWord, nil);
@@ -630,6 +655,12 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
 -(void)onISEResultXmlParserResult:(ISEResult*)result{
     self.resultView.text=[result toString];
     NSLog([result toString]);
+    NSLog(@"%f",[result total_score]);
+    double score = [result total_score];
+    NSLog(@"%@",[result content]);
+    [self.popupView setText:[NSString stringWithFormat:@"You got a score ：%f / 5.00", score]];
+    [self.view addSubview:self.popupView];
+    
 }
 
 

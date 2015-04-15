@@ -228,6 +228,7 @@
 		4EC5BABA1ADEF624002A635F /* 10.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 10.mp3; sourceTree = "<group>"; };
 		4EC5BABB1ADEF624002A635F /* 11.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 11.mp3; sourceTree = "<group>"; };
 		4EC5BABC1ADEF624002A635F /* 12.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 12.mp3; sourceTree = "<group>"; };
+		4EC5BAC91ADF11A8002A635F /* prefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = prefix.h; sourceTree = "<group>"; };
 		4ECD38791ADD132C008F9DFA /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4ECD387A1ADD132C008F9DFA /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		986A73E71AD6C9D50015C12A /* C1 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = C1; sourceTree = "<group>"; };
@@ -307,7 +308,6 @@
 				4ECD38771ADD1097008F9DFA /* Scratch */,
 				4E0EA85D1ADD9B8D001673D4 /* Audio */,
 				4E8087391AD7DF7A000767C5 /* Images.xcassets */,
-				4E0EA8501ADD1719001673D4 /* images */,
 				4E0F411F1ADE61360075A2DE /* Interface */,
 				3C24BF4B154FA74300084C39 /* Supporting Files */,
 			);
@@ -367,17 +367,10 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		4E0EA8501ADD1719001673D4 /* images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = images;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		4E0EA8521ADD199C001673D4 /* WheelPart */ = {
 			isa = PBXGroup;
 			children = (
+				4EC5BAC91ADF11A8002A635F /* prefix.h */,
 				4E0EA82A1ADD157E001673D4 /* horseBackground.png */,
 				4E0EA82B1ADD157E001673D4 /* horseOriginal.png */,
 				4E0EA82C1ADD157E001673D4 /* horseScatched.png */,

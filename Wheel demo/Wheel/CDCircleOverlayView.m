@@ -21,18 +21,18 @@
         rect1.origin.x = self.circle.frame.size.width / 2  - rect1.size.width / 2;
         rect1.origin.y = 0;
         
-        overlayThumb = [[CDCircleThumb alloc] initWithShortCircleRadius:rect1.size.height/2 longRadius:self.circle.frame.size.height/2 numberOfSegments:self.circle.numberOfSegments];
+        overlayThumb = [[CDCircleThumb alloc] initWithShortCircleRadius:rect1.size.height/2 longRadius:self.circle.frame.size.height/2 numberOfSegments:self.circle.numberOfSegments numberOfLever:1];
         overlayThumb.gradientFill = NO;
         
         overlayThumb.layer.position = CGPointMake(CGRectGetWidth(frame)/2, circle.ringWidth/2);
         self.controlPoint = overlayThumb.layer.position;
         [self addSubview:overlayThumb];
         overlayThumb.arcColor = [UIColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:0.0f];
-//        overlayThumb.arcColor = [UIColor colorWithRed:98/255.0f green:29/255.0f blue:29/255.0f alpha:0.3f];
+        //        overlayThumb.arcColor = [UIColor colorWithRed:98/255.0f green:29/255.0f blue:29/255.0f alpha:0.3f];
         self.buttonCenter = CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(self.circle.frame));
-
-        }
-
+        
+    }
+    
     return self;
 }
 

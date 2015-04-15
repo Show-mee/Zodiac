@@ -6,14 +6,14 @@ typedef enum {
 }CDCircleThumbsSeparator;
 
 @class CDCircle, CDCircleThumb, CDCircleOverlayView;
-@protocol CDCircleDelegate <NSObject> 
+@protocol CDCircleDelegate <NSObject>
 @required
 
 -(void) circle: (CDCircle *) circle didMoveToSegment:(NSInteger) segment thumb: (CDCircleThumb *) thumb;
 
--(void) secondCircle: (CDCircle *) secondCircle didMoveToSegment:(NSInteger) segment thumb: (CDCircleThumb *) thumb;
--(void) thirdCircle: (CDCircle *) thirdCircle didMoveToSegment:(NSInteger) segment thumb: (CDCircleThumb *) thumb;
--(void) fourthCircle: (CDCircle *) fourthCircle didMoveToSegment:(NSInteger) segment thumb: (CDCircleThumb *) thumb;
+//-(void) secondCircle: (CDCircle *) secondCircle didMoveToSegment:(NSInteger) segment thumb: (CDCircleThumb *) thumb;
+//-(void) thirdCircle: (CDCircle *) thirdCircle didMoveToSegment:(NSInteger) segment thumb: (CDCircleThumb *) thumb;
+//-(void) fourthCircle: (CDCircle *) fourthCircle didMoveToSegment:(NSInteger) segment thumb: (CDCircleThumb *) thumb;
 
 
 @end

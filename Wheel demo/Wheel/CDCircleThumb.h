@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 #import "CDCircle.h"
 #import "CDIconView.h"
-
+#import "prefix.h"
 
 
 
@@ -24,6 +24,8 @@
 @property (nonatomic, strong) NSArray *gradientColors;
 @property (nonatomic, strong) UIColor *arcColor;
 
--(id) initWithShortCircleRadius: (CGFloat) shortRadius longRadius: (CGFloat) longRadius numberOfSegments: (CGFloat) sNumber;
+@property (nonatomic) int numOfLevel;
+
+-(id) initWithShortCircleRadius: (CGFloat) shortRadius longRadius: (CGFloat) longRadius numberOfSegments: (CGFloat) sNumber numberOfLever: (int) level;
 
 @end

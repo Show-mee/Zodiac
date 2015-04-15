@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 
 @class CDCircleThumb;
-@interface CDCircleGestureRecognizer : UIGestureRecognizer 
+@interface CDCircleGestureRecognizer : UIGestureRecognizer
 {
     NSDate *previousTouchDate;
     double currentTransformAngle;
