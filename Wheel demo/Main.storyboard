@@ -29,7 +29,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3OL-hK-X7c">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="di" translatesAutoresizingMaskIntoConstraints="NO" id="3OL-hK-X7c">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZR-RG-96R">
@@ -83,7 +83,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="69i-mL-WPh" kind="modal" id="aRy-vg-aoF"/>
+                                    <segue destination="69i-mL-WPh" kind="modal" modalTransitionStyle="coverVertical" id="aRy-vg-aoF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPw-E0-Jmd">
@@ -95,6 +95,16 @@
                                     <segue destination="Oln-rE-YnB" kind="modal" id="9aY-uk-qem"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dc8-tF-yJ6" userLabel="Again">
+                                <rect key="frame" x="202" y="529" width="35" height="30"/>
+                                <state key="normal" image="undo">
+                                    <color key="titleColor" red="0.27450980390000002" green="0.070588235289999995" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetButtonClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dz2-wA-0kP"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6A-tQ-Dyf">
                                 <rect key="frame" x="78" y="529" width="48" height="31"/>
                                 <state key="normal" image="tip">
@@ -103,17 +113,6 @@
                                 </state>
                                 <connections>
                                     <action selector="tipBtn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="yFK-dQ-GTZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dc8-tF-yJ6" userLabel="Again">
-                                <rect key="frame" x="202" y="529" width="35" height="30"/>
-                                <state key="normal" image="undo">
-                                    <color key="titleColor" red="0.27450980390000002" green="0.070588235289999995" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="resetButtonClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tds-vE-Dli"/>
-                                    <segue destination="vXZ-lx-hvc" kind="modal" id="xaH-hF-2or"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -149,7 +148,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="MIb-eG-dcI"/>
         <segue reference="aRy-vg-aoF"/>
     </inferredMetricsTieBreakers>
 </document>

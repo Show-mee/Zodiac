@@ -781,6 +781,8 @@
 		3C24BF5F154FA74300084C39 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yuhua Zhang (R9P9WY2HPY)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -800,6 +802,8 @@
 		3C24BF60154FA74300084C39 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yuhua Zhang (R9P9WY2HPY)";
 				FRAMEWORK_SEARCH_PATHS = (

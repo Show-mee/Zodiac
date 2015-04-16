@@ -49,6 +49,7 @@ NSString* const KCResultNotify3=@"停止评测，结果等待中...";
 @property (nonatomic, strong) UITextView *resultView;
 @property (nonatomic, strong) NSString* resultText;
 @property (nonatomic, assign) CGFloat resultViewHeight;
+@property (strong, nonatomic) IBOutlet UIImageView *soundView;
 
 @property (nonatomic, strong) UIButton *startBtn;
 @property (nonatomic, strong) UIButton *stopBtn;
@@ -456,6 +457,7 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
     [self.textView resignFirstResponder];
     self.startBtn.enabled=YES;
     [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_00.png"] forState:UIControlStateNormal];
+     [self.soundView setImage:nil];
     
     
     
@@ -519,33 +521,43 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
     
     if (0 < volume && volume<= 3) {
         [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_01.png"] forState:UIControlStateNormal];
+        [self.soundView setImage:[UIImage imageNamed:@"record_animate_01.png"]];
     }
     else  if (3<volume && volume <=6) {
         [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_02.png"] forState:UIControlStateNormal];
+        [self.soundView setImage:[UIImage imageNamed:@"record_animate_02.png"]];
     }
     else  if (6<volume && volume <=9) {
         [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_03.png"] forState:UIControlStateNormal];
+        [self.soundView setImage:[UIImage imageNamed:@"record_animate_03.png"]];
     }
     else  if (9 <volume && volume <=12) {
         [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_04.png"] forState:UIControlStateNormal];
+        [self.soundView setImage:[UIImage imageNamed:@"record_animate_04.png"]];
     }
     else  if (12<volume && volume <=15) {
         [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_05.png"] forState:UIControlStateNormal];
+        [self.soundView setImage:[UIImage imageNamed:@"record_animate_05.png"]];
     }
     else  if (15<volume && volume<=18) {
         [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_06.png"] forState:UIControlStateNormal];
+        [self.soundView setImage:[UIImage imageNamed:@"record_animate_06.png"]];
     }
     else  if (18<volume && volume<=21) {
         [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_07.png"] forState:UIControlStateNormal];
+        [self.soundView setImage:[UIImage imageNamed:@"record_animate_07.png"]];
     }
     else  if (21<volume && volume<=24) {
         [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_08.png"] forState:UIControlStateNormal];
+        [self.soundView setImage:[UIImage imageNamed:@"record_animate_08.png"]];
     }
     else  if (24<volume && volume<=30) {
         [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_09.png"] forState:UIControlStateNormal];
+        [self.soundView setImage:[UIImage imageNamed:@"record_animate_09.png"]];
     }
     else   {
         [self.recordBtn setBackgroundImage:[UIImage imageNamed:@"record_animate_00.png"] forState:UIControlStateNormal];
+        [self.soundView setImage:nil];
     }
     
 }

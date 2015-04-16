@@ -27,8 +27,8 @@ extern NSString * zodiacName;
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    NSString* imageName = [zodiacName stringByAppendingString:@"_background.png"];
-    [self.backgroundImage setImage:[UIImage imageNamed:imageName]];
+//    NSString* imageName = [zodiacName stringByAppendingString:@"_background.png"];
+//    [self.backgroundImage setImage:[UIImage imageNamed:imageName]];
     
     
     NSLog(@"!!zodiacName %@",zodiacName);

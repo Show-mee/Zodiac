@@ -50,10 +50,10 @@
     
     // Do any additional setup after loading the view, typically from a nib.
     UIButton *confirmBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [confirmBtn setBackgroundColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bg"]]];
-    [confirmBtn setTitle:@"Confirm" forState:UIControlStateNormal];
+    [confirmBtn setBackgroundImage:[UIImage imageNamed:@"confirmBtn"] forState:UIControlStateNormal];
+    [confirmBtn setTitle:@"" forState:UIControlStateNormal];
     //    startBtn.bounds = CGRectMake(160, 274, 320,290);
-    confirmBtn.frame = CGRectMake(100, 500, 100, 100);
+    confirmBtn.frame = CGRectMake(100, 500, 130, 44);
     
     [confirmBtn addTarget:self action:@selector(onBtnWheel:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:confirmBtn];
