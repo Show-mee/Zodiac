@@ -48,13 +48,16 @@ extern NSString * zodiacName;
 {
     [super viewDidAppear:animated];
     [_gifView startGif];
-    [self performSelector:@selector(jumpToNext) withObject:[UIColor blueColor]afterDelay:5];
+    [self performSelector:@selector(jumpToNext) withObject:[UIColor blueColor]afterDelay:4];
 }
 -(void)jumpToNext
 {
     UIStoryboard *secondStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        [self presentModalViewController:[secondStoryboard instantiateViewControllerWithIdentifier:@"ScratchView"] animated:YES];
     
+    UIViewController *dViewController = [secondStoryboard instantiateViewControllerWithIdentifier:@"ScratchView"];
+    
+    dViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;//页面切换效果设置
+    [self presentModalViewController: dViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

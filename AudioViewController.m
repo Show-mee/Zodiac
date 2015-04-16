@@ -42,6 +42,7 @@ NSString* const KCResultNotify3=@"停止评测，结果等待中...";
 #pragma mark -
 
 @interface AudioViewController () <IFlySpeechEvaluatorDelegate ,ISESettingDelegate ,ISEResultXmlParserDelegate>
+@property (strong, nonatomic) IBOutlet UIButton *backBtn;
 
 @property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, assign) CGFloat textViewHeight;
@@ -658,27 +659,32 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
 
 -(void)onISEResultXmlParserResult:(ISEResult*)result{
     self.resultView.text=[result toString];
-    NSLog([result toString]);
+//    NSLog([result toString]);
     NSLog(@"%f",[result total_score]);
     double score = [result total_score];
+    score = score * 20;
     NSLog(@"%@",[result content]);
+    double time = [result time_len];
     
     NSString * title ;
     NSString * message;
-    NSString * confirm = @"Ok";
+    NSString * confirm = @"OK";
     
-    if (score < 2.50) {
+    if (score < 50) {
         title = @"Something Wrong??";
-        message:@"try again?";
+        message = @"try again?";
 
-    }else if(score < 4.0){
+    }else if(score < 80){
         title  = @"You could be better~~, try again";
-        message = [NSString stringWithFormat: @"You got a score ：%.2f / 5.00", score];
+        message = [NSString stringWithFormat: @"You got a score ：%.2f ", score];
         [self.view addSubview:self.popupView];
         
     }else{
+        self.backBtn.enabled = true;
         title = @"Congratulations";
-        message = [NSString stringWithFormat: @"You got a score ：%.2f / 5.00", score];
+        message = [NSString stringWithFormat: @"You got a score ：%.2f ", score];
+        
+    
     }
     
     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:title
@@ -688,9 +694,6 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
                                              otherButtonTitles:nil];
     [alertView show];
 
-
-
-    
 }
 
 

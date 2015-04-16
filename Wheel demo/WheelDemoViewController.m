@@ -1,10 +1,16 @@
 #import "WheelDemoViewController.h"
 #import "CDCircleOverlayView.h"
+#import "PopupView.h"
 
 @interface WheelDemoViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *background;
 @property (nonatomic) int x,y;
 @property (nonatomic) int c1, c2, c3, c4;
+@property (nonatomic, strong) UILabel* name;
+@property (nonatomic, strong) PopupView *popupView;
+@property(nonatomic, strong) UIButton * startBtn;
+@property (nonatomic) int seg;
+
 
 
 @end
@@ -44,6 +50,7 @@
     
     // Do any additional setup after loading the view, typically from a nib.
     UIButton *confirmBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [confirmBtn setBackgroundColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bg"]]];
     [confirmBtn setTitle:@"Confirm" forState:UIControlStateNormal];
     //    startBtn.bounds = CGRectMake(160, 274, 320,290);
     confirmBtn.frame = CGRectMake(100, 500, 100, 100);
@@ -56,6 +63,9 @@
 - (void) onBtnWheel:(id) sender{
     
     //    [self.view setHidden:YES];
+    zodiacName =   [NSString stringWithFormat:@"%d", (self.seg+1)];
+    NSLog(zodiacName);
+
     [self.background setImage: [UIImage imageNamed: @"bgBlack.png"]];
     UIView *RemoveCircleGo = [self.view viewWithTag:17];
     UIView *RemoveOverlayGo = [self.view viewWithTag:18];
@@ -99,30 +109,27 @@
     [self.view addSubview:firstCircle];
     [self.view addSubview:firstOverlay];
     
-    UIButton *startBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [startBtn setTitle:@"start" forState:UIControlStateNormal];
-    //    startBtn.bounds = CGRectMake(160, 274, 320,290);
-    startBtn.frame = CGRectMake(100, 100, 100, 100);
-    
-    [startBtn addTarget:self action:@selector(onBtnStart:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:startBtn];
+    _startBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    _startBtn.frame = CGRectMake(94, 200, 144, 73);
+
+    [self.startBtn setBackgroundImage:[UIImage imageNamed:@"startBtn"] forState:UIControlStateNormal];
+    [_startBtn setTitle:@"" forState:UIControlStateNormal];
+    self.startBtn.hidden = true;
+    [self.startBtn addTarget:self action:@selector(onBtnStart:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.startBtn];
     
 }
+//Changed
 
 - (void) onBtnStart:(id) sender
 {
     UIStoryboard *secondStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    NSLog(@"%d %d %d %d",self.c1, self.c2, self.c3, self.c4);
-    if(self.c1 == self.c2 && self.c2 == self.c3 && self.c3 == self.c4){
-        int zo = self.c1  + 1;
-        zodiacName = [NSString stringWithFormat:@"%d", zo];
-        UIStoryboard *secondStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        [self presentModalViewController:[secondStoryboard instantiateViewControllerWithIdentifier:@"GIFoverview"] animated:YES];
-    }else{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please guess once more" message:@"Be patient" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-           [alert show];
-    }
-
+    
+    UIViewController *dViewController = [secondStoryboard instantiateViewControllerWithIdentifier:@"GIFoverview"];
+    
+    dViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;//页面切换效果设置
+    
+    [self presentModalViewController: dViewController animated:YES];
 }
 
 - (void)viewDidUnload
@@ -166,8 +173,12 @@
     }if(segment == 11){
         word = @"Zhu/Pig";
     }
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"User did select item" message:[NSString stringWithFormat:@"Your choice is: %@", word] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [alert show];
+
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"User did select item" message:[NSString stringWithFormat:@"Your choice is: %@", word] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//    [alert show];
+    
+    //Change the label
+    
     //record the circle number
     if(460 <= self.y){
         self.c1 = segment;
@@ -182,7 +193,49 @@
         self.c4 = segment;
          NSLog(@"c4: %d",self.c4 );
     }
+    self.seg = segment;
 
+    
+    if(self.c1 == self.c2 && self.c2 == self.c3 && self.c3 == self.c4 && self.c3 == ([zodiacName intValue] - 1)){
+        
+//        popupView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat: @"Congratulations! You got a %@",word] message:@"Let's go to writing part" delegate:nil cancelButtonTitle:@"nil" otherButtonTitles: nil];
+//        [alert show];
+//        int zo = segment + 1;
+//        zodiacName = [NSString stringWithFormat:@"%d", zo];
+//        self.seg = [NSString stringWithFormat:@"%d", zo];
+
+        self.popupView = [[PopupView alloc]initWithFrame:CGRectMake(200, 300, 289, 147)];
+        self.popupView.ParentView = self.view;
+        [self.popupView setText:[NSString stringWithFormat:@"You got a %@", word]];
+        
+        [self.view addSubview:self.popupView];
+        self.startBtn.hidden = false;
+        
+//        [self.popupView setText:[NSString stringWithFormat:@"Let's go to the writing part"]];
+//        [self.view addSubview:self.popupView];
+        
+        
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat: @"Congratulations! You got a %@",word] message:@"Let's go to writing part" delegate:nil cancelButtonTitle:@"nil" otherButtonTitles: nil];
+//                [alert show];
+
+
+//        [self performSelector:@selector(jumpToGIF) withObject:[UIColor blueColor]afterDelay:2];
+        
+    }
+
+}
+
+-(void)jumpToGIF
+{
+    UIStoryboard *secondStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    
+    UIViewController *dViewController = [secondStoryboard instantiateViewControllerWithIdentifier:@"GIFoverview"];
+    
+    dViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;//页面切换效果设置
+    
+    [self presentModalViewController: dViewController animated:YES];
+    
 }
 
 -(UIImage *) circle:(CDCircle *)circle iconForThumbAtRow:(NSInteger)row {

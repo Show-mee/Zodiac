@@ -32,22 +32,24 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3OL-hK-X7c">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZA-Ty-OAa">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <items>
-                                    <navigationItem title="Learning" id="oj8-H0-5c4">
-                                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="rewind" id="KjU-wj-4Mj">
-                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="fastForward" id="7Hp-Nm-I7k">
-                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <segue destination="vXZ-lx-hvc" kind="modal" id="MsN-iS-f6N"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZR-RG-96R">
+                                <rect key="frame" x="16" y="531" width="20" height="30"/>
+                                <state key="normal" image="review">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="jDb-zB-BkE" kind="modal" id="qKN-k7-ENl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwD-L1-Mmy">
+                                <rect key="frame" x="284" y="530" width="20" height="30"/>
+                                <state key="normal" image="next">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="modal" id="MIb-eG-dcI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -72,49 +74,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T8b-zn-cRG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="573"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="di" translatesAutoresizingMaskIntoConstraints="NO" id="T8b-zn-cRG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="ONl-20-vvy">
-                                <rect key="frame" x="0.0" y="520" width="320" height="44"/>
-                                <color key="barTintColor" red="0.90980392160000001" green="0.91372549020000005" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <navigationItem id="2a6-Gw-tgI">
-                                        <nil key="title"/>
-                                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="rewind" id="VUG-3b-fE9">
-                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <connections>
-                                                <segue destination="69i-mL-WPh" kind="modal" id="b7s-S2-vYJ"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dc8-tF-yJ6" userLabel="Again">
-                                            <rect key="frame" x="138" y="7" width="44" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Again">
-                                                <color key="titleColor" red="0.27450980390000002" green="0.070588235289999995" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="resetButtonClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tds-vE-Dli"/>
-                                            </connections>
-                                        </button>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="fastForward" id="JPP-VY-hHf">
-                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <segue destination="Oln-rE-YnB" kind="modal" id="iNz-BX-jZd"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6A-tQ-Dyf">
-                                <rect key="frame" x="16" y="458" width="46" height="30"/>
-                                <state key="normal" title="Tip">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqN-hz-Lsa">
+                                <rect key="frame" x="16" y="529" width="21" height="31"/>
+                                <state key="normal" image="review">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="69i-mL-WPh" kind="modal" id="aRy-vg-aoF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPw-E0-Jmd">
+                                <rect key="frame" x="284" y="529" width="20" height="30"/>
+                                <state key="normal" image="next">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Oln-rE-YnB" kind="modal" id="9aY-uk-qem"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6A-tQ-Dyf">
+                                <rect key="frame" x="78" y="529" width="48" height="31"/>
+                                <state key="normal" image="tip">
                                     <color key="titleColor" red="0.27450980390000002" green="0.070588235289999995" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="tipBtn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="yFK-dQ-GTZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dc8-tF-yJ6" userLabel="Again">
+                                <rect key="frame" x="202" y="529" width="35" height="30"/>
+                                <state key="normal" image="undo">
+                                    <color key="titleColor" red="0.27450980390000002" green="0.070588235289999995" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetButtonClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tds-vE-Dli"/>
+                                    <segue destination="vXZ-lx-hvc" kind="modal" id="xaH-hF-2or"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -137,12 +136,20 @@
             <point key="canvasLocation" x="644" y="475"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="di" width="640" height="1133"/>
+        <image name="next" width="35" height="52"/>
+        <image name="review" width="35" height="52"/>
+        <image name="tip" width="21" height="31"/>
+        <image name="undo" width="31" height="29"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="b7s-S2-vYJ"/>
+        <segue reference="MIb-eG-dcI"/>
+        <segue reference="aRy-vg-aoF"/>
     </inferredMetricsTieBreakers>
 </document>

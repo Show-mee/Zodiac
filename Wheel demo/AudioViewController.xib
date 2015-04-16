@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AudioViewController">
             <connections>
+                <outlet property="backBtn" destination="OSF-IL-Nsi" id="uH6-PI-lNn"/>
                 <outlet property="backgroundView" destination="LCX-ow-ULp" id="sqV-OQ-IRg"/>
                 <outlet property="recordBtn" destination="ORP-oS-rxn" id="5Mo-Sm-pms"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -20,15 +21,6 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LCX-ow-ULp">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSF-IL-Nsi">
-                    <rect key="frame" x="280" y="528" width="32" height="32"/>
-                    <state key="normal" image="end">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="backBtnDown:" destination="-1" eventType="touchUpInside" id="bQf-hU-xGg"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORP-oS-rxn">
                     <rect key="frame" x="95" y="524" width="28" height="37"/>
                     <state key="normal" image="play">
@@ -54,6 +46,15 @@
                     </state>
                     <connections>
                         <action selector="reviewBtnDown:" destination="-1" eventType="touchUpInside" id="bOR-DZ-Bl2"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSF-IL-Nsi">
+                    <rect key="frame" x="280" y="528" width="32" height="32"/>
+                    <state key="normal" image="end">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="backBtnDown:" destination="-1" eventType="touchUpInside" id="bQf-hU-xGg"/>
                     </connections>
                 </button>
             </subviews>
