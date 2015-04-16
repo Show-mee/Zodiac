@@ -42,27 +42,19 @@ extern NSString * zodiacName;
     [self.view addSubview:_gifView];
     [_gifView release];
     
-//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    btn.frame = CGRectMake(0, 0, 100, 60);
-//    btn.center = CGPointMake(100, self.view.bounds.size.height - 50);
-//    btn.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-//    [btn setTitle:@"Learn" forState:UIControlStateNormal];
-//    [btn addTarget:self action:@selector(startGif) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:btn];
-//    
-//    UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    btn2.frame = CGRectMake(0, 0, 100, 60);
-//    btn2.center = CGPointMake(220, self.view.bounds.size.height - 50);
-//    btn2.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-//    [btn2 setTitle:@"Practise" forState:UIControlStateNormal];
-//    [btn2 addTarget:self action:@selector(stopGif) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:btn2];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [_gifView startGif];
+    [self performSelector:@selector(jumpToNext) withObject:[UIColor blueColor]afterDelay:5];
+}
+-(void)jumpToNext
+{
+    UIStoryboard *secondStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        [self presentModalViewController:[secondStoryboard instantiateViewControllerWithIdentifier:@"ScratchView"] animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning

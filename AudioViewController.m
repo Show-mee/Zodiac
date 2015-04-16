@@ -512,7 +512,7 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
  */
 - (void)onVolumeChanged:(int)volume buffer:(NSData *)buffer {
     //    NSLog(@"volume:%d",volume);
-    [self.popupView setText:[NSString stringWithFormat:@"音量：%d",volume]];
+    [self.popupView setText:[NSString stringWithFormat:@"Current Volume：%d",volume]];
     [self.view addSubview:self.popupView];
     //    double volume2 = (double) volume;
     
@@ -549,6 +549,8 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
     
 }
 
+
+
 /*!
  *  开始录音回调
  *  当调用了`startListening`函数之后，如果没有发生错误则会回调此函数。如果发生错误则回调onError:函数
@@ -584,7 +586,7 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
  */
 - (void)onError:(IFlySpeechError *)errorCode {
     if(errorCode && errorCode.errorCode!=0){
-        [self.popupView setText:[NSString stringWithFormat:@"错误码：%d %@",[errorCode errorCode],[errorCode errorDesc]]];
+        [self.popupView setText:[NSString stringWithFormat:@"Error code：%d %@",[errorCode errorCode],[errorCode errorDesc]]];
         [self.view addSubview:self.popupView];
         
     }
@@ -660,8 +662,34 @@ static NSString *LocalizedEvaString(NSString *key, NSString *comment) {
     NSLog(@"%f",[result total_score]);
     double score = [result total_score];
     NSLog(@"%@",[result content]);
-    [self.popupView setText:[NSString stringWithFormat:@"You got a score ：%f / 5.00", score]];
-    [self.view addSubview:self.popupView];
+    
+    NSString * title ;
+    NSString * message;
+    NSString * confirm = @"Ok";
+    
+    if (score < 2.50) {
+        title = @"Something Wrong??";
+        message:@"try again?";
+
+    }else if(score < 4.0){
+        title  = @"You could be better~~, try again";
+        message = [NSString stringWithFormat: @"You got a score ：%.2f / 5.00", score];
+        [self.view addSubview:self.popupView];
+        
+    }else{
+        title = @"Congratulations";
+        message = [NSString stringWithFormat: @"You got a score ：%.2f / 5.00", score];
+    }
+    
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:title
+                                                       message:message
+                                                      delegate:nil
+                                             cancelButtonTitle:confirm
+                                             otherButtonTitles:nil];
+    [alertView show];
+
+
+
     
 }
 

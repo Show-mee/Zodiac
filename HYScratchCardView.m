@@ -1,5 +1,5 @@
 #import "HYScratchCardView.h"
-
+extern NSString* zodiacName;
 @interface HYScratchCardView ()
 
 @property (nonatomic, strong) UIImageView *surfaceImageView;
@@ -31,8 +31,11 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
+        NSString*  imageName = [zodiacName stringByAppendingString:@"_original.png"];
+        
         self.surfaceImageView = [[UIImageView alloc]initWithFrame:self.bounds];
-        self.surfaceImageView.image = [UIImage imageNamed:@"horseOriginal"];
+        self.surfaceImageView.image = [UIImage imageNamed:imageName];
         [self addSubview:self.surfaceImageView];
         
         self.imageLayer = [CALayer layer];

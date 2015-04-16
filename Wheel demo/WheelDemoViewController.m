@@ -3,10 +3,25 @@
 
 @interface WheelDemoViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *background;
+@property (nonatomic) int x,y;
+@property (nonatomic) int c1, c2, c3, c4;
+
 
 @end
 
 @implementation WheelDemoViewController
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSSet *allTouches = [event allTouches];    //返回与当前接收者有关的所有的触摸对象
+    UITouch *touch = [allTouches anyObject];   //视图中的所有对象
+    
+    CGPoint point = [touch locationInView: self.view]; //返回触摸点在视图中的当前坐标
+    self.x = point.x;
+    self.y = point.y;
+    NSLog(@"touch (x, y) is (%d, %d)", self.x, self.y);
+}
+
 
 - (void)viewDidLoad
 {
@@ -97,8 +112,17 @@
 - (void) onBtnStart:(id) sender
 {
     UIStoryboard *secondStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    zodiacName = @"7";
-    [self presentModalViewController:[secondStoryboard instantiateViewControllerWithIdentifier:@"GIFoverview"] animated:YES];
+    NSLog(@"%d %d %d %d",self.c1, self.c2, self.c3, self.c4);
+    if(self.c1 == self.c2 && self.c2 == self.c3 && self.c3 == self.c4){
+        int zo = self.c1  + 1;
+        zodiacName = [NSString stringWithFormat:@"%d", zo];
+        UIStoryboard *secondStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        [self presentModalViewController:[secondStoryboard instantiateViewControllerWithIdentifier:@"GIFoverview"] animated:YES];
+    }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please guess once more" message:@"Be patient" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+           [alert show];
+    }
+
 }
 
 - (void)viewDidUnload
@@ -144,6 +168,21 @@
     }
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"User did select item" message:[NSString stringWithFormat:@"Your choice is: %@", word] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alert show];
+    //record the circle number
+    if(460 <= self.y){
+        self.c1 = segment;
+         NSLog(@"c1: %d",self.c1 );
+    }else if(320<=self.y && self.y<460){
+        self.c2 = segment;
+         NSLog(@"c2: %d",self.c2 );
+    } else if(180<=self.y && self.y<320){
+        self.c3 = segment;
+        NSLog(@"c3: %d",self.c3 );
+    }else{
+        self.c4 = segment;
+         NSLog(@"c4: %d",self.c4 );
+    }
+
 }
 
 -(UIImage *) circle:(CDCircle *)circle iconForThumbAtRow:(NSInteger)row {

@@ -72,17 +72,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T8b-zn-cRG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="573"/>
+                            </imageView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="ONl-20-vvy">
                                 <rect key="frame" x="0.0" y="520" width="320" height="44"/>
                                 <color key="barTintColor" red="0.90980392160000001" green="0.91372549020000005" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem id="2a6-Gw-tgI">
+                                        <nil key="title"/>
                                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="rewind" id="VUG-3b-fE9">
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <segue destination="69i-mL-WPh" kind="modal" id="b7s-S2-vYJ"/>
                                             </connections>
                                         </barButtonItem>
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dc8-tF-yJ6" userLabel="Again">
+                                            <rect key="frame" x="138" y="7" width="44" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Again">
+                                                <color key="titleColor" red="0.27450980390000002" green="0.070588235289999995" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="resetButtonClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tds-vE-Dli"/>
+                                            </connections>
+                                        </button>
                                         <barButtonItem key="rightBarButtonItem" systemItem="fastForward" id="JPP-VY-hHf">
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
@@ -93,7 +108,7 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6A-tQ-Dyf">
-                                <rect key="frame" x="16" y="466" width="46" height="30"/>
+                                <rect key="frame" x="16" y="458" width="46" height="30"/>
                                 <state key="normal" title="Tip">
                                     <color key="titleColor" red="0.27450980390000002" green="0.070588235289999995" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -102,22 +117,12 @@
                                     <action selector="tipBtn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="yFK-dQ-GTZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dc8-tF-yJ6" userLabel="Again">
-                                <rect key="frame" x="260" y="466" width="44" height="30"/>
-                                <state key="normal" title="Again">
-                                    <color key="titleColor" red="0.27450980390000002" green="0.070588235289999995" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="resetButtonClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tds-vE-Dli"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="horseBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="T8b-zn-cRG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="573"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="T8b-zn-cRG" id="hhX-DQ-htE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -132,9 +137,6 @@
             <point key="canvasLocation" x="644" y="475"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="horseBackground.png" width="640" height="1136"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
